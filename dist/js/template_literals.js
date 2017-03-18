@@ -20,7 +20,7 @@ function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defi
         console.log("Compare strings.raw[1] === \"bar\":", strings.raw[1] === "bar");
     };
 
-    console.log("=========== Template literals examples ===========");
+    console.log("\n        ************** Template literals examples **************\n\n                      === String Interpolation ===\n                      ");
 
     var customer = {
         name: "Foo"
@@ -33,11 +33,15 @@ function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defi
     var message = "Hello " + customer.name + ",\nwant to buy " + card.amount + " " + card.product + " for\na total of " + card.amount * card.unitprice + " bucks?";
     console.log("Value message:", message);
 
+    console.log("\n                      === Custom Interpolation ===\n                ");
+
     var bar = "Hola";
     var baz = "Mundo";
     var asd = "Cristhian";
 
     get(_templateObject, bar + baz, asd);
+
+    console.log("\n                       === Raw String Access ===\n                ");
 
     quux(_templateObject2, 42);
 

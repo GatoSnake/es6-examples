@@ -14,13 +14,17 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         return (x + y) * (arguments.length <= 2 ? 0 : arguments.length - 2);
     };
 
-    console.log("=========== Extended parameter handling examples ===========");
+    console.log("\n        ************** Extended parameter handling examples **************\n\n                         === Default Parameter Values ===\n         ");
 
     console.log("Compare function1() === 50:", function1(1) === 50);
+
+    console.log("\n                             === Rest Parameter ===\n                ");
 
     var a = new Array(1, 2, 3, 4, 5);
 
     console.log("Compare function2() === 9:", function2(1, 2, "hello", true, 7) === 9);
+
+    console.log("\n                             === Spread Operator ===\n                ");
 
     var params = ["hello", true, 7];
     var other = [1, 2].concat(params); // [ 1, 2, "hello", true, 7 ]

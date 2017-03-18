@@ -1,5 +1,9 @@
 {
-    console.log(`=========== Template literals examples ===========`);
+    console.log(`
+        ************** Template literals examples **************
+
+                      === String Interpolation ===
+                      `);
 
     var customer = {
         name: "Foo"
@@ -14,6 +18,10 @@ want to buy ${card.amount} ${card.product} for
 a total of ${card.amount * card.unitprice} bucks?`;
     console.log(`Value message:`, message);
 
+    console.log(`
+                      === Custom Interpolation ===
+                `);
+
     function get(array, param1, param2) {
         console.log(`Value params get();`, array, param1, param2);
         let url = `${array[0]}${param1}${array[1]}${param2}`;
@@ -25,6 +33,10 @@ a total of ${card.amount * card.unitprice} bucks?`;
     let asd = `Cristhian`;
 
     get `http://example.com/foo?bar=${bar + baz}&quux=${asd}`;
+
+    console.log(`
+                       === Raw String Access ===
+                `);
 
     function quux(strings, ...values) {
         console.log(`Compare strings[0] === "foo\\n":`, strings[0] === "foo\n");

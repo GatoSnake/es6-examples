@@ -1,5 +1,9 @@
 {
-    console.log(`=========== Scoping examples ===========`);
+    console.log(`
+        ************** Scoping examples **************
+
+                === Block-Scoped Variables ===
+        `);
 
     var a = new Array('a', 'b', 'c');
     var b = new Array('d', 'e', 'f');
@@ -8,11 +12,11 @@
     let y = new Array('3', '4');
 
     for (let i = 0; i < a.length; i++) {
-        let x = a[i]
+        let x = a[i];
         console.log(`Value x[${i}]:`, x);
     }
     for (let i = 0; i < b.length; i++) {
-        let y = b[i]
+        let y = b[i];
         console.log(`Value y[${i}]:`, y);
     }
 
@@ -22,12 +26,16 @@
     let callbacks = []
     for (let i = 0; i <= 2; i++) {
         callbacks[i] = function() {
-            return i * 2
+            return i * 2;
         }
     }
     console.log(`Compare callback[0] === 0:`, callbacks[0]() === 0);
     console.log(`Compare callback[1] === 2:`, callbacks[1]() === 2);
     console.log(`Compare callback[2] === 4:`, callbacks[2]() === 4);
+
+    console.log(`
+                === Block-Scoped Functions ===
+                `);
 
     {
         function foo() {

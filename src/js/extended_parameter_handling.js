@@ -1,10 +1,18 @@
 {
-    console.log(`=========== Extended parameter handling examples ===========`);
+    console.log(`
+        ************** Extended parameter handling examples **************
+
+                         === Default Parameter Values ===
+         `);
 
     function function1(x, y = 7, z = 42) {
         return x + y + z;
     }
     console.log(`Compare function1() === 50:`, function1(1) === 50);
+
+    console.log(`
+                             === Rest Parameter ===
+                `);
 
     var a = new Array(1, 2, 3, 4, 5);
 
@@ -12,6 +20,10 @@
         return (x + y) * a.length;
     }
     console.log(`Compare function2() === 9:`, function2(1, 2, "hello", true, 7) === 9);
+
+    console.log(`
+                             === Spread Operator ===
+                `);
 
     var params = ["hello", true, 7];
     var other = [1, 2, ...params]; // [ 1, 2, "hello", true, 7 ]

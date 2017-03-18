@@ -1,7 +1,7 @@
 'use strict';
 
 {
-    console.log('=========== Scoping examples ===========');
+    console.log('\n        ************** Scoping examples **************\n\n                === Block-Scoped Variables ===\n        ');
 
     var a = new Array('a', 'b', 'c');
     var b = new Array('d', 'e', 'f');
@@ -35,6 +35,8 @@
     console.log('Compare callback[0] === 0:', callbacks[0]() === 0);
     console.log('Compare callback[1] === 2:', callbacks[1]() === 2);
     console.log('Compare callback[2] === 4:', callbacks[2]() === 4);
+
+    console.log('\n                === Block-Scoped Functions ===\n                ');
 
     {
         var foo = function foo() {

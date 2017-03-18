@@ -1,7 +1,7 @@
 "use strict";
 
 {
-    console.log("=========== Arrow functions examples ===========");
+    console.log("\n        ************** Arrow functions examples **************\n\n                      === Expression Bodies ===\n        ");
 
     var evens = new Array(1, 2, 3);
 
@@ -22,6 +22,8 @@
     console.log("Array pairs:", pairs);
     console.log("Array nums:", nums);
 
+    console.log("\n                      === Statement Bodies ===\n                ");
+
     var nums = new Array(2, 5, 3, 6, 8, 4, 5, 1, 5);
     var fives = new Array();
 
@@ -30,6 +32,8 @@
     });
 
     console.log("Array fives:", fives);
+
+    console.log("\n                        === Lexical this ===\n                ");
 
     var example = {
         nums: [2, 5, 3, 6, 8, 4, 5, 1, 5],
