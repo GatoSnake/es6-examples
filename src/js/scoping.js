@@ -16,8 +16,8 @@
         console.log(`Value y[${i}]:`, y);
     }
 
-    console.log(`Value array x:`, x);
-    console.log(`Value array y:`, y);
+    console.log(`Array x:`, x);
+    console.log(`Array y:`, y);
 
     let callbacks = []
     for (let i = 0; i <= 2; i++) {
@@ -25,21 +25,24 @@
             return i * 2
         }
     }
-    console.log(`callback[0]:`, callbacks[0]() === 0);
-    console.log(`callback[1]:`, callbacks[1]() === 2);
-    console.log(`callback[2]:`, callbacks[2]() === 4);
+    console.log(`Compare callback[0] === 0:`, callbacks[0]() === 0);
+    console.log(`Compare callback[1] === 2:`, callbacks[1]() === 2);
+    console.log(`Compare callback[2] === 4:`, callbacks[2]() === 4);
 
     {
         function foo() {
             return 1;
         }
-        console.log(`Value foo():`, foo() === 1); {
+        console.log(`Compare foo() === 1:`, foo() === 1);
+
+        {
             function foo() {
                 return 2;
             }
-            console.log(`Value foo():`, foo() === 2);
+            console.log(`Compare foo() === 2:`, foo() === 2);
         }
-        console.log(`Value foo():`, foo() === 1);
+
+        console.log(`Compare foo() === 1:`, foo() === 1);
     }
 
 }

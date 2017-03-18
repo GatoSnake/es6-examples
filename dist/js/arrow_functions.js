@@ -18,9 +18,9 @@
         return v + i;
     });
 
-    console.log("Value odds:", odds);
-    console.log("Value pairs:", pairs);
-    console.log("Value nums:", nums);
+    console.log("Array odds:", odds);
+    console.log("Array pairs:", pairs);
+    console.log("Array nums:", nums);
 
     var nums = new Array(2, 5, 3, 6, 8, 4, 5, 1, 5);
     var fives = new Array();
@@ -45,5 +45,5 @@
 
     example.getFives();
 
-    console.log("Value example.nums:", example.fives);
+    console.log("Array example.nums:", example.fives);
 }

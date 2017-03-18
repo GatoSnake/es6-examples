@@ -18,8 +18,8 @@
         console.log('Value y[' + _i + ']:', _y);
     }
 
-    console.log('Value array x:', x);
-    console.log('Value array y:', y);
+    console.log('Array x:', x);
+    console.log('Array y:', y);
 
     var callbacks = [];
 
@@ -32,22 +32,25 @@
     for (var _i2 = 0; _i2 <= 2; _i2++) {
         _loop(_i2);
     }
-    console.log('callback[0]:', callbacks[0]() === 0);
-    console.log('callback[1]:', callbacks[1]() === 2);
-    console.log('callback[2]:', callbacks[2]() === 4);
+    console.log('Compare callback[0] === 0:', callbacks[0]() === 0);
+    console.log('Compare callback[1] === 2:', callbacks[1]() === 2);
+    console.log('Compare callback[2] === 4:', callbacks[2]() === 4);
 
     {
         var foo = function foo() {
             return 1;
         };
 
-        console.log('Value foo():', foo() === 1);{
+        console.log('Compare foo() === 1:', foo() === 1);
+
+        {
             var _foo = function _foo() {
                 return 2;
             };
 
-            console.log('Value foo():', _foo() === 2);
+            console.log('Compare foo() === 2:', _foo() === 2);
         }
-        console.log('Value foo():', foo() === 1);
+
+        console.log('Compare foo() === 1:', foo() === 1);
     }
 }
