@@ -4,7 +4,7 @@ IN PROGRESS!!!
 
 This project shows the example of all the features of ECMAScript 6. The examples were based on examples from the site http://es6-features.org
 
-Examples
+### Examples
 * Constants
 	* Constants 
 * Scoping
