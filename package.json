@@ -1,0 +1,20 @@
+{
+  "name": "es6_tutorial",
+  "version": "1.0.0",
+  "description": "ejemplos tutorial es6",
+  "main": "script.js",
+  "scripts": {
+    "build": "babel src -d dist"
+  },
+  "keywords": [
+    "tutorial",
+    "es6",
+    "javascript"
+  ],
+  "author": "Cristhian Won",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-preset-env": "^1.2.1"
+  }
+}
