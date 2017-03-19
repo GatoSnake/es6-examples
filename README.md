@@ -2,7 +2,16 @@
 
 IN PROGRESS!!!
 
-This project shows the example of all the features of ECMAScript 6. The examples were based on examples from the site http://es6-features.org
+This project shows the example of all the features of ECMAScript 6. The examples were based on examples from the site http://es6-features.org.
+
+### How to run
+
+To run the examples you need to have npm installed.
+
+1. Run `npm install`
+2. Run `npm run build`
+3. Open in browser the file `dist/index.html`
+4. Open the developer tools in your browser and look the console.
 
 ### Examples
 * Constants
