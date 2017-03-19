@@ -21,13 +21,13 @@ This project shows the example of all the features of ECMAScript 6. The examples
 * Template Literals
 	* String Interpolation
 	* Custom Interpolation
-	* Raw String Access 
+	* Raw String Access
 * Extended Literals
 	* Binary & Octal Literal
 	* Unicode String & RegExp Literal
-* ********************************** IN PROGRESS **********************************
 * Enhanced Regular Expression
 	* Regular Expression Sticky Matching
+* ********************************** IN PROGRESS **********************************
 * Enhanced Object Properties
 	* Property Shorthand
 	* Computed Property Names
