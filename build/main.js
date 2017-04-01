@@ -65,7 +65,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = es6_constants;
 function es6_constants() {
-  console.log("\n      ************** Constants exampless **************\n      ");
+  console.log("\n      ************** Constants examples **************\n      ");
   var PI = 3.141593;
   console.log("Compare constant PI > 3.0:", PI > 3.0);
 }
