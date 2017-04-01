@@ -5,4 +5,3 @@ node_modules/*
 !node_modules/tether/
 !node_modules/prismjs/
 !node_modules/font-awesome/
-build/
