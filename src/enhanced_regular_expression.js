@@ -1,14 +1,13 @@
-{
+export default function es6_enhanced_regular_expression() {
     console.log(`
-      ************** Enhanced Regular Expression examples **************
+    ************** Enhanced Regular Expression examples **************
 
-                 === Regular Expression Sticky Matching ===
-                   `);
+               === Regular Expression Sticky Matching ===
+                 `);
 
-
+    //example one
 
     let message = "My name is Foo and my lastname is Bar."
-
     let pattern = /my [a-zA-Z]+/y;
 
     console.log(`Return pattern /my [a-zA-Z]+/y:`, pattern.exec(message));
@@ -22,7 +21,7 @@
     console.log(`Return pattern /my [a-zA-Z]+/y:`, pattern.exec(message));
     console.log(`Last index pattern:`, pattern.lastIndex);
 
-
+    //example two
     let parser = (input, match) => {
         for (let pos = 0, lastPos = input.length; pos < lastPos; pos++) {
             for (let i = 0; i < match.length; i++) {

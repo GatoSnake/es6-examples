@@ -1,12 +1,12 @@
-{
+export default function es6_scoping() {
     console.log(`
         ************** Scoping examples **************
 
                 === Block-Scoped Variables ===
         `);
 
-    var a = new Array('a', 'b', 'c');
-    var b = new Array('d', 'e', 'f');
+    let a = new Array('a', 'b', 'c');
+    let b = new Array('d', 'e', 'f');
 
     let x = new Array('1', '2');
     let y = new Array('3', '4');

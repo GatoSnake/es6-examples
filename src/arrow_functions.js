@@ -1,29 +1,29 @@
-{
+export default function es6_arrow_functions() {
     console.log(`
-        ************** Arrow functions examples **************
+      ************** Arrow functions examples **************
 
-                      === Expression Bodies ===
-        `);
+                    === Expression Bodies ===
+      `);
 
-    var evens = new Array(1, 2, 3);
+    let evens = new Array(1, 2, 3);
 
-    var odds = evens.map(v => v + 1);
-    var pairs = evens.map(v => ({
+    let odds = evens.map(v => v + 1);
+    let pairs = evens.map(v => ({
         even: v,
         odd: v + 1
     }));
-    var nums = evens.map((v, i) => v + i);
+    let nums = evens.map((v, i) => v + i);
 
     console.log(`Array odds:`, odds);
     console.log(`Array pairs:`, pairs);
     console.log(`Array nums:`, nums);
 
     console.log(`
-                      === Statement Bodies ===
-                `);
+                    === Statement Bodies ===
+              `);
 
-    var nums = new Array(2, 5, 3, 6, 8, 4, 5, 1, 5);
-    var fives = new Array();
+    nums = new Array(2, 5, 3, 6, 8, 4, 5, 1, 5);
+    let fives = new Array();
 
     nums.forEach(v => {
         if (v % 5 === 0)
@@ -33,8 +33,8 @@
     console.log(`Array fives:`, fives);
 
     console.log(`
-                        === Lexical this ===
-                `);
+                      === Lexical this ===
+              `);
 
     let example = {
         nums: [2, 5, 3, 6, 8, 4, 5, 1, 5],

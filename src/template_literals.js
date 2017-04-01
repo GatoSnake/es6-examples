@@ -1,26 +1,26 @@
-{
+export default function es6_template_literals() {
     console.log(`
-        ************** Template literals examples **************
+      ************** Template literals examples **************
 
-                      === String Interpolation ===
-                      `);
+                    === String Interpolation ===
+                    `);
 
-    var customer = {
+    let customer = {
         name: "Foo"
     };
-    var card = {
+    let card = {
         amount: 7,
         product: "Bar",
         unitprice: 42
     };
-    var message = `Hello ${customer.name},
+    let message = `Hello ${customer.name},
 want to buy ${card.amount} ${card.product} for
 a total of ${card.amount * card.unitprice} bucks?`;
     console.log(`Value message:`, message);
 
     console.log(`
-                      === Custom Interpolation ===
-                `);
+                    === Custom Interpolation ===
+              `);
 
     function get(array, param1, param2) {
         console.log(`Value params get();`, array, param1, param2);
@@ -35,8 +35,8 @@ a total of ${card.amount * card.unitprice} bucks?`;
     get `http://example.com/foo?bar=${bar + baz}&quux=${asd}`;
 
     console.log(`
-                       === Raw String Access ===
-                `);
+                     === Raw String Access ===
+              `);
 
     function quux(strings, ...values) {
         console.log(`Compare strings[0] === "foo\\n":`, strings[0] === "foo\n");

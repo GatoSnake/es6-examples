@@ -1,16 +1,16 @@
-{
+export default function es6_extended_literals() {
     console.log(`
-        ************** Extended literals examples **************
+      ************** Extended literals examples **************
 
-                     === Binary & Ocal Literal ===
-                     `);
+                   === Binary & Ocal Literal ===
+                   `);
 
     console.log(`Compare binary 0b111110111 === 503:`, 0b111110111 === 503);
     console.log(`Compare octal 0o767 === 503:`, 0o767 === 503);
 
     console.log(`
-                === Unicode String & RegExp Literal ===
-                `);
+              === Unicode String & RegExp Literal ===
+              `);
 
     console.log(`Compare "𠮷".length === 2:`, "𠮷".length === 2);
     console.log(`Compare "𠮷".match(/./u)[0].length === 2:`, "𠮷".match(/./u)[0].length === 2);

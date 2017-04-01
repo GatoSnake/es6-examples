@@ -2,9 +2,9 @@
   "name": "es6_tutorial",
   "version": "1.0.0",
   "description": "ejemplos tutorial es6",
-  "main": "script.js",
+  "main": "src/main.js",
   "scripts": {
-    "build": "babel src -d dist"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "tutorial",
@@ -12,9 +12,13 @@
     "javascript"
   ],
   "author": "Cristhian Won",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
-    "babel-cli": "^6.23.0",
-    "babel-preset-env": "^1.2.1"
+    "babel-preset-es2015": "^6.24.0",
+    "babelify": "^7.3.0",
+    "browserify": "^14.1.0",
+    "gulp": "^3.9.1",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
   }
 }
