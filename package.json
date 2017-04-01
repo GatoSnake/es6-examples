@@ -20,5 +20,11 @@
     "gulp": "^3.9.1",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "bootstrap": "^4.0.0-alpha.6",
+    "jquery": "^3.2.1",
+    "prismjs": "^1.6.0",
+    "tether": "^1.4.0"
   }
 }

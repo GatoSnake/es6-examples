@@ -1,11 +1,201 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>ES6 examples</title>
-    <script src="build/main.js" charset="utf-8"></script>
-  </head>
-  <body>
+<html lang="en">
 
-  </body>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>ES6 examples</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!-- ES6 examples code -->
+    <script src="build/main.js"></script>
+</head>
+
+<body>
+
+    <nav class="navbar sticky-top navbar-toggleable-md navbar-inverse bg-primary">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        <h1 class="navbar-brand mb-0">ECMAScript 6</h1>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item active dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Features
+                        </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <h6 class="dropdown-header">Constants</h6>
+                        <a class="dropdown-item" href="#">Constants</a>
+                        <div class="dropdown-divider"></div>
+                        <h6 class="dropdown-header">Scoping</h6>
+                        <a class="dropdown-item" href="#">Block-Scoped Variables</a>
+                        <a class="dropdown-item" href="#">Block-Scoped Functions</a>
+                        <div class="dropdown-divider"></div>
+                        <h6 class="dropdown-header">Arrow Functions</h6>
+                        <a class="dropdown-item" href="#">Expression Bodies</a>
+                        <a class="dropdown-item" href="#">Statement Bodies</a>
+                        <a class="dropdown-item" href="#">Lexical this</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <br/>
+        <!-- Constants -->
+        <article>
+            <div class="row">
+                <div class="col">
+                    <h2>Constants</h2>
+                    <br/>
+                </div>
+            </div>
+            <section>
+                <div class="row">
+                    <div class="col">
+                        <h4>Constants</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Support for constants (also known as "immutable variables"), i.e., variables which cannot be re-assigned new content. Notice: this only makes the variable itself immutable, not its assigned content (for instance, in case the content
+                            is an object, this means the object itself can still be altered).</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">const PI = 3.141593;
+console.log(PI > 3.0);</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">true</code></pre>
+                    </div>
+                </div>
+            </section>
+        </article>
+        <br/>
+        <!-- Scoping -->
+        <article>
+            <div class="row">
+                <div class="col">
+                    <h2>Scoping</h2>
+                    <br/>
+                </div>
+            </div>
+            <!-- block scoped variables -->
+            <section>
+                <div class="row">
+                    <div class="col">
+                        <h4>Block-Scoped Variables</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Block-scoped variables (and constants) without hoisting.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">let a = new Array('a', 'b', 'c');
+let b = new Array('d', 'e', 'f');
+
+let x = new Array('1', '2');
+let y = new Array('3', '4');
+
+for (let i = 0; i < a.length; i++) {
+  let x = a[i];
+  console.log(`Value x[${i}]:`, x);
+}
+for (let i = 0; i < b.length; i++) {
+  let y = b[i];
+  console.log(`Value y[${i}]:`, y);
+}
+
+console.log(`Array x:`, JSON.stringify(x));
+console.log(`Array y:`, JSON.stringify(y));
+
+let callbacks = []
+for (let i = 0; i <= 2; i++) {
+  callbacks[i] = function() {
+      return i * 2;
+  }
+}
+console.log(`Compare callback[0] === 0:`, callbacks[0]() === 0);
+console.log(`Compare callback[1] === 2:`, callbacks[1]() === 2);
+console.log(`Compare callback[2] === 4:`, callbacks[2]() === 4);</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">Value x[0]: a
+Value x[1]: b
+Value x[2]: c
+Value y[0]: d
+Value y[1]: e
+Value y[2]: f
+Array x: ["1","2"]
+Array y: ["3","4"]
+Compare callback[0] === 0: true
+Compare callback[1] === 2: true
+Compare callback[2] === 4: true</code></pre>
+                    </div>
+                </div>
+            </section>
+            <!-- block scoped functions -->
+            <br/>
+            <section>
+                <div class="row">
+                    <div class="col">
+                        <h4>Block-Scoped Functions</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Block-scoped function definitions.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">function foo() {
+    return 1;
+}
+console.log(`Compare foo() === 1:`, foo() === 1);
+
+{
+    function foo() {
+        return 2;
+    }
+    console.log(`Compare foo() === 2:`, foo() === 2);
+}
+
+console.log(`Compare foo() === 1:`, foo() === 1);</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">Compare foo() === 1: true
+Compare foo() === 2: true
+Compare foo() === 1: true</code></pre>
+                    </div>
+                </div>
+            </section>
+        </article>
+
+
+
+    </div>
+
+    <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="node_modules/tether/dist/js/tether.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Prism highlight code -->
+    <link rel="stylesheet" href="node_modules/prismjs/themes/prism.css">
+    <script src="node_modules/prismjs/prism.js"></script>
+
+</body>
+
 </html>

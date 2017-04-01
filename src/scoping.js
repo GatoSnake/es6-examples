@@ -20,8 +20,8 @@ export default function es6_scoping() {
         console.log(`Value y[${i}]:`, y);
     }
 
-    console.log(`Array x:`, x);
-    console.log(`Array y:`, y);
+    console.log(`Array x:`, JSON.stringify(x));
+    console.log(`Array y:`, JSON.stringify(y));
 
     let callbacks = []
     for (let i = 0; i <= 2; i++) {

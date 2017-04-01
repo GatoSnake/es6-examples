@@ -15,3 +15,7 @@ es6_template_literals();
 es6_extended_literals();
 es6_enhanced_regular_expression();
 es6_enhanced_object_properties();
+
+
+//Others
+// The code snippet you want to highlight, as a string
