@@ -14,9 +14,9 @@ export default function es6_arrow_functions() {
     }));
     let nums = evens.map((v, i) => v + i);
 
-    console.log(`Array odds:`, odds);
-    console.log(`Array pairs:`, pairs);
-    console.log(`Array nums:`, nums);
+    console.log(`Array odds:`, JSON.stringify(odds));
+    console.log(`Array pairs:`, JSON.stringify(pairs));
+    console.log(`Array nums:`, JSON.stringify(nums));
 
     console.log(`
                     === Statement Bodies ===
@@ -30,7 +30,7 @@ export default function es6_arrow_functions() {
             fives.push(v);
     });
 
-    console.log(`Array fives:`, fives);
+    console.log(`Array fives:`, JSON.stringify(fives));
 
     console.log(`
                       === Lexical this ===
@@ -49,6 +49,6 @@ export default function es6_arrow_functions() {
 
     example.getFives();
 
-    console.log(`Array example.nums:`, example.fives);
+    console.log(`Array example.nums:`, JSON.stringify(example.fives));
 
 }
