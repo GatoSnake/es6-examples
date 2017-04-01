@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>ES6 examples</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <!-- ES6 examples code -->
     <script src="build/main.js"></script>
@@ -12,36 +14,39 @@
 
 <body>
 
-    <nav class="navbar sticky-top navbar-toggleable-md navbar-inverse bg-primary">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        <h1 class="navbar-brand mb-0">ECMAScript 6</h1>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-                <li class="nav-item active dropdown">
-                    <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Features
-                        </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <h6 class="dropdown-header">Constants</h6>
-                        <a class="dropdown-item" href="#constants">Constants</a>
-                        <div class="dropdown-divider"></div>
-                        <h6 class="dropdown-header">Scoping</h6>
-                        <a class="dropdown-item" href="#scoping">Block-Scoped Variables</a>
-                        <a class="dropdown-item" href="#block-scoped-functions">Block-Scoped Functions</a>
-                        <div class="dropdown-divider"></div>
-                        <h6 class="dropdown-header">Arrow Functions</h6>
-                        <a class="dropdown-item" href="#expression-bodies">Expression Bodies</a>
-                        <a class="dropdown-item" href="#statement-bodies">Statement Bodies</a>
-                        <a class="dropdown-item" href="#lexical-this">Lexical <code>this</code></a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <button onclick="topFunction()" id="goTop" title="Go to top"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
 
     <div class="container">
+        <nav class="navbar navbar-toggleable-md navbar-inverse bg-primary">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="imgs/es6.png" width="30" height="30" class="d-inline-block align-top" alt=""> ECMAScript 6
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item active dropdown">
+                        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Features
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-header h6" href="#constants">Constants</a>
+                            <a class="dropdown-item" href="#constants-01">Constants</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-header h6" href="#scoping">Scoping</a>
+                            <a class="dropdown-item" href="#block-scoped-variables">Block-Scoped Variables</a>
+                            <a class="dropdown-item" href="#block-scoped-functions">Block-Scoped Functions</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-header h6" href="#arrow-functions">Arrow Functions</a>
+                            <a class="dropdown-item" href="#expression-bodies">Expression Bodies</a>
+                            <a class="dropdown-item" href="#statement-bodies">Statement Bodies</a>
+                            <a class="dropdown-item" href="#lexical-this">Lexical <code>this</code></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
         <br/>
         <!-- Constants -->
         <article id="constants">
@@ -51,7 +56,7 @@
                     <br/>
                 </div>
             </div>
-            <section>
+            <section id="constants-01">
                 <div class="row">
                     <div class="col">
                         <h4>Constants</h4>
@@ -310,6 +315,27 @@ console.log(`Array example.nums:`, JSON.stringify(example.fives));</code></pre>
     <!-- Prism highlight code -->
     <link rel="stylesheet" href="node_modules/prismjs/themes/prism.css">
     <script src="node_modules/prismjs/prism.js"></script>
+
+    <script>
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("goTop").style.display = "block";
+            } else {
+                document.getElementById("goTop").style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
 
 </body>
 
