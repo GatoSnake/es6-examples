@@ -1,4 +1,4 @@
-export default function es6_extended_parameter_handling() {
+{
     console.log(`
       ************** Extended parameter handling examples **************
 

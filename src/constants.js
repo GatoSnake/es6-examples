@@ -1,4 +1,4 @@
-export default function es6_constants() {
+{
     console.log(`
       ************** Constants examples **************
       `);

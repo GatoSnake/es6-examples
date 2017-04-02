@@ -1,4 +1,4 @@
-export default function es6_enhanced_regular_expression() {
+{
     console.log(`
     ************** Enhanced Regular Expression examples **************
 

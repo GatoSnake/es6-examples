@@ -1,11 +1,7 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = es6_arrow_functions;
-function es6_arrow_functions() {
+{
     console.log("\n      ************** Arrow functions examples **************\n\n                    === Expression Bodies ===\n      ");
 
     var evens = new Array(1, 2, 3);
@@ -60,11 +56,7 @@ function es6_arrow_functions() {
 },{}],2:[function(require,module,exports){
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = es6_constants;
-function es6_constants() {
+{
   console.log("\n      ************** Constants examples **************\n      ");
   var PI = 3.141593;
   console.log("Compare constant PI > 3.0:", PI > 3.0);
@@ -73,14 +65,9 @@ function es6_constants() {
 },{}],3:[function(require,module,exports){
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = es6_enhanced_object_properties;
-
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function es6_enhanced_object_properties() {
+{
     console.log("\n    ************** Enhanced Object Properties examples **************\n\n                      === Property Shorthand ===\n                 ");
 
     var x = 1;
@@ -124,11 +111,7 @@ function es6_enhanced_object_properties() {
 },{}],4:[function(require,module,exports){
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = es6_enhanced_regular_expression;
-function es6_enhanced_regular_expression() {
+{
     console.log("\n    ************** Enhanced Regular Expression examples **************\n\n               === Regular Expression Sticky Matching ===\n                 ");
 
     //example one
@@ -190,11 +173,7 @@ function es6_enhanced_regular_expression() {
 },{}],5:[function(require,module,exports){
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = es6_extended_literals;
-function es6_extended_literals() {
+{
     console.log("\n      ************** Extended literals examples **************\n\n                   === Binary & Ocal Literal ===\n                   ");
 
     console.log("Compare binary 0b111110111 === 503:", 503 === 503);
@@ -235,31 +214,28 @@ function es6_extended_literals() {
 },{}],6:[function(require,module,exports){
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = es6_extended_parameter_handling;
-
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
-function es6_extended_parameter_handling() {
-    console.log("\n      ************** Extended parameter handling examples **************\n\n                       === Default Parameter Values ===\n       ");
-
-    function function1(x) {
+{
+    var function1 = function function1(x) {
         var y = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 7;
         var z = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 42;
 
         return x + y + z;
-    }
+    };
+
+    var function2 = function function2(x, y) {
+        return (x + y) * (arguments.length <= 2 ? 0 : arguments.length - 2);
+    };
+
+    console.log("\n      ************** Extended parameter handling examples **************\n\n                       === Default Parameter Values ===\n       ");
+
     console.log("Compare function1() === 50:", function1(1) === 50);
 
     console.log("\n                           === Rest Parameter ===\n              ");
 
     var a = new Array(1, 2, 3, 4, 5);
 
-    function function2(x, y) {
-        return (x + y) * (arguments.length <= 2 ? 0 : arguments.length - 2);
-    }
     console.log("Compare function2() === 9:", function2(1, 2, "hello", true, 7) === 9);
 
     console.log("\n                           === Spread Operator ===\n              ");
@@ -277,60 +253,19 @@ function es6_extended_parameter_handling() {
 },{}],7:[function(require,module,exports){
 'use strict';
 
-var _constants = require('./constants');
-
-var _constants2 = _interopRequireDefault(_constants);
-
-var _scoping = require('./scoping');
-
-var _scoping2 = _interopRequireDefault(_scoping);
-
-var _arrow_functions = require('./arrow_functions');
-
-var _arrow_functions2 = _interopRequireDefault(_arrow_functions);
-
-var _extended_parameter_handling = require('./extended_parameter_handling');
-
-var _extended_parameter_handling2 = _interopRequireDefault(_extended_parameter_handling);
-
-var _template_literals = require('./template_literals');
-
-var _template_literals2 = _interopRequireDefault(_template_literals);
-
-var _extended_literals = require('./extended_literals');
-
-var _extended_literals2 = _interopRequireDefault(_extended_literals);
-
-var _enhanced_regular_expression = require('./enhanced_regular_expression');
-
-var _enhanced_regular_expression2 = _interopRequireDefault(_enhanced_regular_expression);
-
-var _enhanced_object_properties = require('./enhanced_object_properties');
-
-var _enhanced_object_properties2 = _interopRequireDefault(_enhanced_object_properties);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-(0, _constants2.default)();
-(0, _scoping2.default)();
-(0, _arrow_functions2.default)();
-(0, _extended_parameter_handling2.default)();
-(0, _template_literals2.default)();
-(0, _extended_literals2.default)();
-(0, _enhanced_regular_expression2.default)();
-(0, _enhanced_object_properties2.default)();
-
-//Others
-// The code snippet you want to highlight, as a string
+require('./constants');
+require('./scoping');
+require('./arrow_functions');
+require('./extended_parameter_handling');
+require('./template_literals');
+require('./extended_literals');
+require('./enhanced_regular_expression');
+require('./enhanced_object_properties');
 
 },{"./arrow_functions":1,"./constants":2,"./enhanced_object_properties":3,"./enhanced_regular_expression":4,"./extended_literals":5,"./extended_parameter_handling":6,"./scoping":8,"./template_literals":9}],8:[function(require,module,exports){
 'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = es6_scoping;
-function es6_scoping() {
+{
     console.log('\n        ************** Scoping examples **************\n\n                === Block-Scoped Variables ===\n        ');
 
     var a = new Array('a', 'b', 'c');
@@ -390,18 +325,26 @@ function es6_scoping() {
 },{}],9:[function(require,module,exports){
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
 var _templateObject = _taggedTemplateLiteral(["http://example.com/foo?bar=", "&quux=", ""], ["http://example.com/foo?bar=", "&quux=", ""]),
     _templateObject2 = _taggedTemplateLiteral(["foo\n", "bar"], ["foo\\n", "bar"]);
 
-exports.default = es6_template_literals;
-
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-function es6_template_literals() {
+{
+    var get = function get(array, param1, param2) {
+        console.log("Value params get():", JSON.stringify(array), param1, param2);
+        var url = "" + array[0] + param1 + array[1] + param2;
+        console.log("Value url:", url);
+    };
+
+    var quux = function quux(strings) {
+        console.log("Compare strings[0] === \"foo\\n\":", strings[0] === "foo\n");
+        console.log("Compare strings[1] === \"bar\":", strings[1] === "bar");
+        console.log("Compare values[0] === 42:", (arguments.length <= 1 ? undefined : arguments[1]) === 42);
+        console.log("Compare strings.raw[0] === \"foo\\\\n\":", strings.raw[0] === "foo\\n");
+        console.log("Compare strings.raw[1] === \"bar\":", strings.raw[1] === "bar");
+    };
+
     console.log("\n      ************** Template literals examples **************\n\n                    === String Interpolation ===\n                    ");
 
     var customer = {
@@ -417,12 +360,6 @@ function es6_template_literals() {
 
     console.log("\n                    === Custom Interpolation ===\n              ");
 
-    function get(array, param1, param2) {
-        console.log("Value params get();", array, param1, param2);
-        var url = "" + array[0] + param1 + array[1] + param2;
-        console.log("Value url:", url);
-    }
-
     var bar = "Hola";
     var baz = "Mundo";
     var asd = "Cristhian";
@@ -431,13 +368,6 @@ function es6_template_literals() {
 
     console.log("\n                     === Raw String Access ===\n              ");
 
-    function quux(strings) {
-        console.log("Compare strings[0] === \"foo\\n\":", strings[0] === "foo\n");
-        console.log("Compare strings[1] === \"bar\":", strings[1] === "bar");
-        console.log("Compare values[0] === 42:", (arguments.length <= 1 ? undefined : arguments[1]) === 42);
-        console.log("Compare strings.raw[0] === \"foo\\\\n\":", strings.raw[0] === "foo\\n");
-        console.log("Compare strings.raw[1] === \"bar\":", strings.raw[1] === "bar");
-    }
     quux(_templateObject2, 42);
 
     console.log("Compare String.war:", String.raw(_templateObject2, 42) === "foo\\n42bar");

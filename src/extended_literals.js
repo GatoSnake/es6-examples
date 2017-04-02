@@ -1,4 +1,4 @@
-export default function es6_extended_literals() {
+{
     console.log(`
       ************** Extended literals examples **************
 

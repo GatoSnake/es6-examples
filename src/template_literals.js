@@ -1,4 +1,4 @@
-export default function es6_template_literals() {
+{
     console.log(`
       ************** Template literals examples **************
 
@@ -23,7 +23,7 @@ a total of ${card.amount * card.unitprice} bucks?`;
               `);
 
     function get(array, param1, param2) {
-        console.log(`Value params get();`, array, param1, param2);
+        console.log(`Value params get():`, JSON.stringify(array), param1, param2);
         let url = `${array[0]}${param1}${array[1]}${param2}`;
         console.log(`Value url:`, url);
     }

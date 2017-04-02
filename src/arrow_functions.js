@@ -1,4 +1,4 @@
-export default function es6_arrow_functions() {
+{
     console.log(`
       ************** Arrow functions examples **************
 

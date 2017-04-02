@@ -1,4 +1,4 @@
-export default function es6_scoping() {
+{
     console.log(`
         ************** Scoping examples **************
 

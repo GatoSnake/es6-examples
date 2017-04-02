@@ -1,4 +1,4 @@
-export default function es6_enhanced_object_properties() {
+{
     console.log(`
     ************** Enhanced Object Properties examples **************
 
