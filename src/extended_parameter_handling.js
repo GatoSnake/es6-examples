@@ -26,10 +26,11 @@ export default function es6_extended_parameter_handling() {
               `);
 
     let params = ["hello", true, 7];
-    let other = [1, 2, ...params]; // [ 1, 2, "hello", true, 7 ]
     console.log(`Compare function2() === 9:`, function2(1, 2, ...params) === 9);
+    let other = [1, 2, ...params];
+    console.log(`Array other:`, JSON.stringify(other));
 
     let str = "foo";
-    let chars = [...str]; // [ "f", "o", "o" ]
-    console.log(`Array chars:`, chars);
+    let chars = [...str];
+    console.log(`Array chars:`, JSON.stringify(chars));
 }

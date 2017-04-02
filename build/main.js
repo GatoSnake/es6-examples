@@ -265,12 +265,13 @@ function es6_extended_parameter_handling() {
     console.log("\n                           === Spread Operator ===\n              ");
 
     var params = ["hello", true, 7];
-    var other = [1, 2].concat(params); // [ 1, 2, "hello", true, 7 ]
     console.log("Compare function2() === 9:", function2.apply(undefined, [1, 2].concat(params)) === 9);
+    var other = [1, 2].concat(params);
+    console.log("Array other:", JSON.stringify(other));
 
     var str = "foo";
-    var chars = [].concat(_toConsumableArray(str)); // [ "f", "o", "o" ]
-    console.log("Array chars:", chars);
+    var chars = [].concat(_toConsumableArray(str));
+    console.log("Array chars:", JSON.stringify(chars));
 }
 
 },{}],7:[function(require,module,exports){

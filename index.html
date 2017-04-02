@@ -42,6 +42,11 @@
                             <a class="dropdown-item" href="#expression-bodies">Expression Bodies</a>
                             <a class="dropdown-item" href="#statement-bodies">Statement Bodies</a>
                             <a class="dropdown-item" href="#lexical-this">Lexical <code>this</code></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-header h6" href="#extended-parameter-handling">Extended Parameter Handling</a>
+                            <a class="dropdown-item" href="#default-parameter-values">Default Parameter Values</a>
+                            <a class="dropdown-item" href="#rest-parameter">Rest Parameter</a>
+                            <a class="dropdown-item" href="#spread-operator">Spread Operator</a>
                         </div>
                     </li>
                 </ul>
@@ -275,8 +280,8 @@ console.log(`Array fives:`, JSON.stringify(fives));</code></pre>
                     </div>
                 </div>
             </section>
-            <!-- lexical this-->
             <br/>
+            <!-- lexical this-->
             <section id="lexical-this">
                 <div class="row">
                     <div class="col">
@@ -314,6 +319,107 @@ console.log(`Array example.nums:`, JSON.stringify(example.fives));</code></pre>
             </section>
         </article>
         <br/>
+        <!-- extended parameter handling -->
+        <article id="extended-parameter-handling">
+            <div class="row">
+                <div class="col">
+                    <h2>Extended Parameter Handling</h2>
+                    <br/>
+                </div>
+            </div>
+            <!-- Default Parameter Values-->
+            <section id="default-parameter-values">
+                <div class="row">
+                    <div class="col">
+                        <h4>Default Parameter Values</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Simple and intuitive default values for function parameters.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">function function1(x, y = 7, z = 42) {
+  return x + y + z;
+}
+console.log(`Compare function1() === 50:`, function1(1) === 50);</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">Compare function1() === 50: true</code></pre>
+                    </div>
+                </div>
+            </section>
+            <br/>
+            <!-- Rest Parameter-->
+            <section id="rest-parameter">
+                <div class="row">
+                    <div class="col">
+                        <h4>Rest Parameter</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Aggregation of remaining arguments into single parameter of variadic functions.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">let a = new Array(1, 2, 3, 4, 5);
+
+function function2(x, y, ...a) {
+  return (x + y) * a.length;
+}
+console.log(`Compare function2() === 9:`, function2(1, 2, "hello", true, 7) === 9);</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">Compare function2() === 9: true</code></pre>
+                    </div>
+                </div>
+            </section>
+            <br/>
+            <!-- Spread Operator-->
+            <section id="spread-operator">
+                <div class="row">
+                    <div class="col">
+                        <h4>Spread Operator</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Spreading of elements of an iterable collection (like an array or even a string) into both literal elements and individual function parameters.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">function function2(x, y, ...a) {
+  return (x + y) * a.length;
+}
+
+let params = ["hello", true, 7];
+console.log(`Compare function2() === 9:`, function2(1, 2, ...params) === 9);
+let other = [1, 2, ...params];
+console.log(`Array other:`, JSON.stringify(other));
+
+let str = "foo";
+let chars = [...str];
+console.log(`Array chars:`, JSON.stringify(chars));</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">Compare function2() === 9: true
+Array other: [1,2,"hello",true,7]
+Array chars: ["f","o","o"]</code></pre>
+                    </div>
+                </div>
+            </section>
+        </article>
 
 
     </div>
