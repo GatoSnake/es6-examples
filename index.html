@@ -64,6 +64,9 @@
                             <a class="dropdown-header h6" href="#extended-literals">Extended Literals</a>
                             <a class="dropdown-item" href="#binary-and-octal-literal">Binary & Octal Literal</a>
                             <a class="dropdown-item" href="#unicode-string-and-regexp-literal">Unicode String & RegExp Literal</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-header h6" href="#enhanced-regular-expression">Enhanced Regular Expression</a>
+                            <a class="dropdown-item" href="#regular-expression-sticky-matching">Regular Expression Sticky Matching</a>
                         </div>
                     </li>
                 </ul>
@@ -624,6 +627,49 @@ Compare "𠮷" === "\uD842\uDFB7": true
 Compare "𠮷" === "\u{20BB7}": true
 Compare "𠮷".codePointAt(0) == 0x20BB7: true
 Value codepoint: 𠮷</code></pre>
+                    </div>
+                </div>
+            </section>
+        </article>
+        <br/>
+        <!-- Enhanced Regular Expression -->
+        <article id="enhanced-regular-expression">
+            <div class="row">
+                <div class="col">
+                    <h2>Enhanced Regular Expression</h2>
+                    <br/>
+                </div>
+            </div>
+            <!-- Regular Expression Sticky Matching-->
+            <section id="regular-expression-sticky-matching">
+                <div class="row">
+                    <div class="col">
+                        <h4>Regular Expression Sticky Matching</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Keep the matching position sticky between matches and this way support efficient parsing of arbitrary long input strings, even with an arbitrary number of distinct regular expressions.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">let message = "My name is Foo and my lastname is Bar."
+let pattern = /my [a-zA-Z]+/y;
+
+console.log(`Return pattern /my [a-zA-Z]+/y:`, JSON.stringify(pattern.exec(message)));
+
+pattern.lastIndex = 19;
+
+console.log(`Return pattern /my [a-zA-Z]+/y:`, JSON.stringify(pattern.exec(message)));
+console.log(`Return pattern /my [a-zA-Z]+/y:`, JSON.stringify(pattern.exec(message)));</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">Return pattern /my [a-zA-Z]+/y: null
+Return pattern /my [a-zA-Z]+/y: ["my lastname"]
+Return pattern /my [a-zA-Z]+/y: null</code></pre>
                     </div>
                 </div>
             </section>
