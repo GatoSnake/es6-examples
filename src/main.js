@@ -9,3 +9,5 @@ require('./extended_literals');
 require('./enhanced_regular_expression');
 require('./enhanced_object_properties');
 require('./destructuring_assignment');
+require('./modules');
+require('./modules2');

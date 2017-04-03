@@ -73,6 +73,10 @@
                             <a class="dropdown-item" href="#object-and-array-matching-default-values">Object And Array Matching, Default Values</a>
                             <a class="dropdown-item" href="#parameter-context-matching">Parameter Context Matching</a>
                             <a class="dropdown-item" href="#fail-soft-destructuring">Fail-Soft Destructuring</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-header h6" href="#modules">Modules</a>
+                            <a class="dropdown-item" href="#value-export-import">Value Export/Import</a>
+                            <a class="dropdown-item" href="#default-and-wildcard">Default & Wildcard</a>
                         </div>
                     </li>
                 </ul>
@@ -1004,6 +1008,84 @@ console.log(`Compare d === undefined:`, d === undefined);</code></pre>
 Compare b === 42: true
 Compare c === 3: true
 Compare d === undefined: true</code></pre>
+                    </div>
+                </div>
+            </section>
+        </article>
+        <br/>
+        <!-- Modules -->
+        <article id="modules">
+            <div class="row">
+                <div class="col">
+                    <h2>Modules</h2>
+                    <br/>
+                </div>
+            </div>
+            <!-- Value Export/Import-->
+            <section id="value-export-import">
+                <div class="row">
+                    <div class="col">
+                        <h4>Value Export/Import</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Support for exporting/importing values from/to modules without global namespace pollution.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">//  lib/math.js
+export function sum (x, y){
+  return x + y;
+};
+export var pi = 3.141593;
+
+//  someApp.js
+import * as math from "./lib/math";
+import { sum, pi } from "./lib/math";
+
+console.log("2π = ", math.sum(math.pi, math.pi));
+console.log("2π = ", sum(pi, pi));</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">2π =  6.283186
+2π =  6.283186</code></pre>
+                    </div>
+                </div>
+            </section>
+            <br/>
+            <!-- Default & Wildcard-->
+            <section id="default-and-wildcard">
+                <div class="row">
+                    <div class="col">
+                        <h4>Default & Wildcard</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Marking a value as the default exported value and mass-mixin of values.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">//  lib/mathplusplus.js
+export * from './math';
+export var e = 2.71828182846;
+export default (x) => Math.exp(x);
+
+//  someApp.js
+import exp, { pi, e } from './lib/mathplusplus';
+console.log(`e:`, e);
+console.log(`e^{π}:`, exp(pi));</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">e: 2.71828182846
+e^{π}: 23.140700648952773</code></pre>
                     </div>
                 </div>
             </section>
