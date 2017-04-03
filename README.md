@@ -44,13 +44,13 @@ To run the examples you need to have npm installed.
 	* Property Shorthand
 	* Computed Property Names
 	* Method Properties   
-* ********************************** IN PROGRESS **********************************
 * Destructuring Assignment
 	* Array Matching
 	* Object Matching, Shorthand Notation
 	* Object Matching, Deep Matching
 	* Parameter Context Matching
 	* Fail-Soft Destructuring
+* ********************************** IN PROGRESS **********************************
 * Modules
 	* Value Export/Import
 	* Default & Wildcard
