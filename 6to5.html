@@ -22,7 +22,7 @@
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="./6to5">
                 <img src="imgs/es6.png" width="30" height="30" class="d-inline-block align-top" alt=""> ECMAScript 6
             </a>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -53,6 +53,10 @@
                             <a class="dropdown-item" href="#string-interpolation">String Interpolation</a>
                             <a class="dropdown-item" href="#custom-interpolation">Custom Interpolation</a>
                             <a class="dropdown-item" href="#raw-string-access">Raw String Access</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-header h6" href="#extended-literals">Extended Literals</a>
+                            <a class="dropdown-item" href="#binary-and-octal-literal">Binary & Octal Literal</a>
+                            <a class="dropdown-item" href="#unicode-string-and-regexp-literal">Unicode String & RegExp Literal</a>
                         </div>
                     </li>
                 </ul>
@@ -548,6 +552,76 @@ Compare String.war: true</code></pre>
                 </div>
             </section>
         </article>
+        <br/>
+        <!-- Extended Literals -->
+        <article id="extended-literals">
+            <div class="row">
+                <div class="col">
+                    <h2>Extended Literals</h2>
+                    <br/>
+                </div>
+            </div>
+            <!-- Binary & Octal Literal-->
+            <section id="binary-and-octal-literal">
+                <div class="row">
+                    <div class="col">
+                        <h4>Binary & Octal Literal</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Direct support for safe binary and octal literals.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">console.log(`Compare binary 0b111110111 === 503:`, 0b111110111 === 503);
+console.log(`Compare octal 0o767 === 503:`, 0o767 === 503);</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">Compare binary 0b111110111 === 503: true
+Compare octal 0o767 === 503: true</code></pre>
+                    </div>
+                </div>
+            </section>
+            <br/>
+            <!-- Unicode String & RegExp Literal-->
+            <section id="unicode-string-and-regexp-literal">
+                <div class="row">
+                    <div class="col">
+                        <h4>Unicode String & RegExp Literal</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Extended support using Unicode within strings and regular expressions.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">console.log(`Compare "𠮷".length === 2:`, "𠮷".length === 2);
+console.log(`Compare "𠮷".match(/./u)[0].length === 2:`, "𠮷".match(/./u)[0].length === 2);
+console.log(`Compare "𠮷" === "\\uD842\\uDFB7":`, "𠮷" === "\uD842\uDFB7");
+console.log(`Compare "𠮷" === "\\u{20BB7}":`, "𠮷" === "\u{20BB7}");
+console.log(`Compare "𠮷".codePointAt(0) == 0x20BB7:`, "𠮷".codePointAt(0) == 0x20BB7);
+for (let codepoint of "𠮷") console.log(`Value codepoint:`, codepoint);</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">Compare "𠮷".length === 2: true
+Compare "𠮷".match(/./u)[0].length === 2: true
+Compare "𠮷" === "\uD842\uDFB7": true
+Compare "𠮷" === "\u{20BB7}": true
+Compare "𠮷".codePointAt(0) == 0x20BB7: true
+Value codepoint: 𠮷</code></pre>
+                    </div>
+                </div>
+            </section>
+        </article>
+        <br/>
 
     </div>
 

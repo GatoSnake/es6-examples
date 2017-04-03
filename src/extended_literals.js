@@ -2,7 +2,7 @@
     console.log(`
       ************** Extended literals examples **************
 
-                   === Binary & Ocal Literal ===
+                   === Binary & Octal Literal ===
                    `);
 
     console.log(`Compare binary 0b111110111 === 503:`, 0b111110111 === 503);
