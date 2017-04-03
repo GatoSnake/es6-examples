@@ -7059,6 +7059,145 @@ process.umask = function() { return 0; };
 },{}],300:[function(require,module,exports){
 "use strict";
 
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
+{
+    var getASTNode = function getASTNode() {
+        return {
+            op: 1,
+            lhs: 2,
+            rhs: 3
+        };
+    };
+
+    var getASTNode = function getASTNode() {
+        return {
+            op: 1,
+            lhs: {
+                op: 2
+            },
+            rhs: 3
+        };
+    };
+
+    var f = function f(_ref2) {
+        var _ref3 = _slicedToArray(_ref2, 2),
+            name = _ref3[0],
+            val = _ref3[1];
+
+        console.log(name, val);
+    };
+
+    var g = function g(_ref4) {
+        var n = _ref4.name,
+            v = _ref4.val;
+
+        console.log(n, v);
+    };
+
+    var h = function h(_ref5) {
+        var name = _ref5.name,
+            val = _ref5.val;
+
+        console.log(name, val);
+    };
+
+    console.log("\n      ************** Destructuring Assignment **************\n\n                      === Array Matching ===\n                      ");
+
+    var list = [1, 2, 3];
+    var a = list[0],
+        b = list[2];
+
+    console.log("Value a:", a);
+    console.log("Value b:", b);
+
+    var _ref = [a, b];
+    b = _ref[0];
+    a = _ref[1];
+
+    console.log("Value a:", a);
+    console.log("Value b:", b);
+
+    console.log("\n            === Object Matching, Shorthand Notation ===\n              ");
+
+    ;
+
+    var _getASTNode = getASTNode(),
+        op = _getASTNode.op,
+        lhs = _getASTNode.lhs,
+        rhs = _getASTNode.rhs;
+
+    console.log("Value op:", op);
+    console.log("Value lhs:", lhs);
+    console.log("Value rhs:", rhs);
+
+    console.log("\n              === Object Matching, Deep Matching ===\n              ");
+
+    ;
+
+    var _getASTNode2 = getASTNode(),
+        a = _getASTNode2.op,
+        b = _getASTNode2.lhs.op,
+        c = _getASTNode2.rhs;
+
+    console.log("Value a:", a);
+    console.log("Value b:", b);
+    console.log("Value c:", c);
+
+    console.log("\n         === Object And Array Matching, Default Values ===\n              ");
+
+    var obj = {
+        a: 1
+    };
+    var a = obj.a,
+        _obj$b = obj.b,
+        b = _obj$b === undefined ? 2 : _obj$b;
+
+
+    console.log("Value a:", a);
+    console.log("Value b:", b);
+
+    var list = [1];
+    var x = list[0],
+        _list$ = list[1],
+        y = _list$ === undefined ? 2 : _list$;
+
+
+    console.log("Value x:", x);
+    console.log("Value y:", y);
+
+    console.log("\n                === Parameter Context Matching ===\n              ");
+
+    f(["bar", 42]);
+    g({
+        name: "foo",
+        val: 7
+    });
+    h({
+        name: "bar",
+        val: 42
+    });
+
+    console.log("\n                 === Fail-Soft Destructuring ===\n              ");
+
+    var list = [7, 42];
+    var _list$2 = list[0],
+        a = _list$2 === undefined ? 1 : _list$2,
+        _list$3 = list[1],
+        b = _list$3 === undefined ? 2 : _list$3,
+        _list$4 = list[2],
+        c = _list$4 === undefined ? 3 : _list$4,
+        d = list[3];
+
+    console.log("Compare a === 7:", a === 7);
+    console.log("Compare b === 42:", b === 42);
+    console.log("Compare c === 3:", c === 3);
+    console.log("Compare d === undefined:", d === undefined);
+}
+
+},{}],301:[function(require,module,exports){
+"use strict";
+
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 {
@@ -7113,7 +7252,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     console.log("Value obj3:", obj3);
 }
 
-},{}],301:[function(require,module,exports){
+},{}],302:[function(require,module,exports){
 "use strict";
 
 {
@@ -7175,7 +7314,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }]);
 }
 
-},{}],302:[function(require,module,exports){
+},{}],303:[function(require,module,exports){
 "use strict";
 
 {
@@ -7216,7 +7355,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
 }
 
-},{}],303:[function(require,module,exports){
+},{}],304:[function(require,module,exports){
 "use strict";
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
@@ -7255,7 +7394,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     console.log("Array chars:", JSON.stringify(chars));
 }
 
-},{}],304:[function(require,module,exports){
+},{}],305:[function(require,module,exports){
 'use strict';
 
 require("babel-polyfill");
@@ -7268,8 +7407,9 @@ require('./template_literals');
 require('./extended_literals');
 require('./enhanced_regular_expression');
 require('./enhanced_object_properties');
+require('./destructuring_assignment');
 
-},{"./arrow_functions":298,"./constants":299,"./enhanced_object_properties":300,"./enhanced_regular_expression":301,"./extended_literals":302,"./extended_parameter_handling":303,"./scoping":305,"./template_literals":306,"babel-polyfill":1}],305:[function(require,module,exports){
+},{"./arrow_functions":298,"./constants":299,"./destructuring_assignment":300,"./enhanced_object_properties":301,"./enhanced_regular_expression":302,"./extended_literals":303,"./extended_parameter_handling":304,"./scoping":306,"./template_literals":307,"babel-polyfill":1}],306:[function(require,module,exports){
 'use strict';
 
 {
@@ -7329,7 +7469,7 @@ require('./enhanced_object_properties');
     }
 }
 
-},{}],306:[function(require,module,exports){
+},{}],307:[function(require,module,exports){
 "use strict";
 
 var _templateObject = _taggedTemplateLiteral(["http://example.com/foo?bar=", "&quux=", ""], ["http://example.com/foo?bar=", "&quux=", ""]),
@@ -7380,4 +7520,4 @@ function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defi
     console.log("Compare String.war:", String.raw(_templateObject2, 42) === "foo\\n42bar");
 }
 
-},{}]},{},[304]);
+},{}]},{},[305]);
