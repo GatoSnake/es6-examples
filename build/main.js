@@ -7070,7 +7070,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
         };
     };
 
-    var getASTNode = function getASTNode() {
+    var getASTNode2 = function getASTNode2() {
         return {
             op: 1,
             lhs: {
@@ -7135,7 +7135,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 
     ;
 
-    var _getASTNode2 = getASTNode(),
+    var _getASTNode2 = getASTNode2(),
         a = _getASTNode2.op,
         b = _getASTNode2.lhs.op,
         c = _getASTNode2.rhs;
@@ -7169,14 +7169,8 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
     console.log("\n                === Parameter Context Matching ===\n              ");
 
     f(["bar", 42]);
-    g({
-        name: "foo",
-        val: 7
-    });
-    h({
-        name: "bar",
-        val: 42
-    });
+    g({ name: "foo", val: 7 });
+    h({ name: "bar", val: 42 });
 
     console.log("\n                 === Fail-Soft Destructuring ===\n              ");
 

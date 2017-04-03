@@ -73,6 +73,14 @@
                             <a class="dropdown-item" href="#property-shorthand">Property Shorthand</a>
                             <a class="dropdown-item" href="#computed-property-names">Computed Property Names</a>
                             <a class="dropdown-item" href="#method-properties">Method Properties</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-header h6" href="#destructuring-assignment">Destructuring Assignment</a>
+                            <a class="dropdown-item" href="#array-matching">Array Matching</a>
+                            <a class="dropdown-item" href="#object-matching-shorthand-notation">Object Matching, Shorthand Notation</a>
+                            <a class="dropdown-item" href="#object-matching-deep-matching">Object Matching, Deep Matching</a>
+                            <a class="dropdown-item" href="#object-and-array-matching-default-values">Object And Array Matching, Default Values</a>
+                            <a class="dropdown-item" href="#parameter-context-matching">Parameter Context Matching</a>
+                            <a class="dropdown-item" href="#fail-soft-destructuring">Fail-Soft Destructuring</a>
                         </div>
                     </li>
                 </ul>
@@ -784,6 +792,226 @@ console.log(`Value obj3:`, obj3);</code></pre>
                     <div class="col-12 col-md-6">
                         <h6>Result</h6>
                         <pre><code class="language-javascript">Value obj3: Object {foo: function, bar: function, quux2: function}</code></pre>
+                    </div>
+                </div>
+            </section>
+        </article>
+        <br/>
+        <!-- Destructuring Assignment -->
+        <article id="destructuring-assignment">
+            <div class="row">
+                <div class="col">
+                    <h2>Destructuring Assignment</h2>
+                    <br/>
+                </div>
+            </div>
+            <!-- Array Matching-->
+            <section id="array-matching">
+                <div class="row">
+                    <div class="col">
+                        <h4>Array Matching</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Intuitive and flexible destructuring of Arrays into individual variables during assignment.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">var list = [1, 2, 3];
+var [a, , b] = list;
+console.log(`Value a:`, a);
+console.log(`Value b:`, b);
+
+[b, a] = [a, b];
+console.log(`Value a:`, a);
+console.log(`Value b:`, b);</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">Value a: 1
+Value b: 3
+Value a: 3
+Value b: 1</code></pre>
+                    </div>
+                </div>
+            </section>
+            <br/>
+            <!-- Object Matching, Shorthand Notation-->
+            <section id="object-matching-shorthand-notation">
+                <div class="row">
+                    <div class="col">
+                        <h4>Object Matching, Shorthand Notation</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Intuitive and flexible destructuring of Objects into individual variables during assignment.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">function getASTNode() {
+  return {op: 1, lhs: 2, rhs: 3};
+};
+
+var {op, lhs, rhs} = getASTNode();
+
+console.log(`Value op:`, op);
+console.log(`Value lhs:`, lhs);
+console.log(`Value rhs:`, rhs);</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">Value op: 1
+Value lhs: 2
+Value rhs: 3</code></pre>
+                    </div>
+                </div>
+            </section>
+            <br/>
+            <!-- Object Matching, Deep Matching-->
+            <section id="object-matching-deep-matching">
+                <div class="row">
+                    <div class="col">
+                        <h4>Object Matching, Deep Matching</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Intuitive and flexible destructuring of Objects into individual variables during assignment.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">function getASTNode2() {
+  return {op: 1, lhs: {op: 2}, rhs: 3};
+};
+
+var {op: a, lhs: {op: b}, rhs: c} = getASTNode2();
+
+console.log(`Value a:`, a);
+console.log(`Value b:`, b);
+console.log(`Value c:`, c);</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">Value a: 1
+Value b: 2
+Value c: 3</code></pre>
+                    </div>
+                </div>
+            </section>
+            <br/>
+            <!-- Object And Array Matching, Default Values-->
+            <section id="object-and-array-matching-default-values">
+                <div class="row">
+                    <div class="col">
+                        <h4>Object And Array Matching, Default Values</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Simple and intuitive default values for destructuring of Objects and Arrays.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">var obj = {a: 1};
+var {a, b = 2} = obj;
+
+console.log(`Value a:`, a);
+console.log(`Value b:`, b);
+
+var list = [1];
+var [x, y = 2] = list;
+
+console.log(`Value x:`, x);
+console.log(`Value y:`, y);</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">Value a: 1
+Value b: 2
+Value x: 1
+Value y: 2</code></pre>
+                    </div>
+                </div>
+            </section>
+            <br/>
+            <!-- Parameter Context Matching-->
+            <section id="parameter-context-matching">
+                <div class="row">
+                    <div class="col">
+                        <h4>Parameter Context Matching</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Intuitive and flexible destructuring of Arrays and Objects into individual parameters during function calls.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">function f([name, val]) {
+  console.log(name, val);
+}
+
+function g({name: n, val: v}) {
+  console.log(n, v);
+}
+
+function h({name, val}) {
+  console.log(name, val);
+}
+
+f(["bar", 42]);
+g({name: "foo", val: 7});
+h({name: "bar", val: 42});</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">bar 42
+foo 7
+bar 42</code></pre>
+                    </div>
+                </div>
+            </section>
+            <br/>
+            <!-- Fail-Soft Destructuring-->
+            <section id="fail-soft-destructuring">
+                <div class="row">
+                    <div class="col">
+                        <h4>Fail-Soft Destructuring</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Fail-soft destructuring, optionally with defaults.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">var list = [7, 42];
+var [a = 1, b = 2, c = 3, d] = list;
+console.log(`Compare a === 7:`, a === 7);
+console.log(`Compare b === 42:`, b === 42);
+console.log(`Compare c === 3:`, c === 3);
+console.log(`Compare d === undefined:`, d === undefined);</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">Compare a === 7: true
+Compare b === 42: true
+Compare c === 3: true
+Compare d === undefined: true</code></pre>
                     </div>
                 </div>
             </section>

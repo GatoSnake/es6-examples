@@ -40,7 +40,7 @@
               === Object Matching, Deep Matching ===
               `);
 
-    function getASTNode() {
+    function getASTNode2() {
         return {
             op: 1,
             lhs: {
@@ -56,7 +56,7 @@
             op: b
         },
         rhs: c
-    } = getASTNode();
+    } = getASTNode2();
 
     console.log(`Value a:`, a);
     console.log(`Value b:`, b);
@@ -91,29 +91,17 @@
         console.log(name, val);
     }
 
-    function g({
-        name: n,
-        val: v
-    }) {
+    function g({name: n, val: v}) {
         console.log(n, v);
     }
 
-    function h({
-        name,
-        val
-    }) {
+    function h({name, val}) {
         console.log(name, val);
     }
 
     f(["bar", 42]);
-    g({
-        name: "foo",
-        val: 7
-    });
-    h({
-        name: "bar",
-        val: 42
-    });
+    g({name: "foo", val: 7});
+    h({name: "bar", val: 42});
 
     console.log(`
                  === Fail-Soft Destructuring ===
