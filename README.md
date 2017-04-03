@@ -40,11 +40,11 @@ To run the examples you need to have npm installed.
 	* Unicode String & RegExp Literal
 * Enhanced Regular Expression
 	* Regular Expression Sticky Matching
-* ********************************** IN PROGRESS **********************************
 * Enhanced Object Properties
 	* Property Shorthand
 	* Computed Property Names
 	* Method Properties   
+* ********************************** IN PROGRESS **********************************
 * Destructuring Assignment
 	* Array Matching
 	* Object Matching, Shorthand Notation
