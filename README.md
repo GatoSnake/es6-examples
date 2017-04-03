@@ -50,10 +50,10 @@ To run the examples you need to have npm installed.
 	* Object Matching, Deep Matching
 	* Parameter Context Matching
 	* Fail-Soft Destructuring
-* ********************************** IN PROGRESS **********************************
 * Modules
 	* Value Export/Import
 	* Default & Wildcard
+* ********************************** IN PROGRESS **********************************
 * Classes
 	* Class Definition
 	* Class Inheritance
