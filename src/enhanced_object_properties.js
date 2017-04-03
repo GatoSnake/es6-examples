@@ -12,7 +12,7 @@
         x,
         y
     };
-    console.log(`Value obj:`, obj);
+    console.log(`Value obj:`, JSON.stringify(obj));
 
     console.log(`
                     === Computed Property Names ===
@@ -25,24 +25,24 @@
         ["baz" + quux()]: 42
     };
 
-    console.log(`Value obj2:`, obj2);
+    console.log(`Value obj2:`, JSON.stringify(obj2));
 
     console.log(`
                        === Method Properties ===
               `);
 
-    // let obj3 = {
-    //     foo(a, b) {
-    //         a + b;
-    //     },
-    //     bar(x, y) {
-    //         x * y;
-    //     },
-    //     * quux2(x, y) {
-    //         x + y;
-    //     }
-    // };
-    //
-    // console.log(obj3);
+    let obj3 = {
+        foo(a, b) {
+            a + b;
+        },
+        bar(x, y) {
+            x * y;
+        },
+        * quux2(x, y) {
+            x + y;
+        }
+    };
+
+    console.log(`Value obj3:`, obj3);
 
 }

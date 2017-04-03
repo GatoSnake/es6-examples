@@ -1,3 +1,5 @@
+require("babel-polyfill");
+
 require('./constants');
 require('./scoping');
 require('./arrow_functions');

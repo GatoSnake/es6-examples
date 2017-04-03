@@ -67,6 +67,11 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-header h6" href="#enhanced-regular-expression">Enhanced Regular Expression</a>
                             <a class="dropdown-item" href="#regular-expression-sticky-matching">Regular Expression Sticky Matching</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-header h6" href="#enhanced-object-properties">Enhanced Object Properties</a>
+                            <a class="dropdown-item" href="#property-shorthand">Property Shorthand</a>
+                            <a class="dropdown-item" href="#computed-property-names">Computed Property Names</a>
+                            <a class="dropdown-item" href="#method-properties">Method Properties</a>
                         </div>
                     </li>
                 </ul>
@@ -670,6 +675,114 @@ console.log(`Return pattern /my [a-zA-Z]+/y:`, JSON.stringify(pattern.exec(messa
                         <pre><code class="language-javascript">Return pattern /my [a-zA-Z]+/y: null
 Return pattern /my [a-zA-Z]+/y: ["my lastname"]
 Return pattern /my [a-zA-Z]+/y: null</code></pre>
+                    </div>
+                </div>
+            </section>
+        </article>
+        <br/>
+        <!-- Enhanced Object Properties -->
+        <article id="enhanced-object-properties">
+            <div class="row">
+                <div class="col">
+                    <h2>Enhanced Object Properties</h2>
+                    <br/>
+                </div>
+            </div>
+            <!-- Property Shorthand-->
+            <section id="property-shorthand">
+                <div class="row">
+                    <div class="col">
+                        <h4>Property Shorthand</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Shorter syntax for common object property definition idiom.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">let x = 1;
+let y = 2;
+
+let obj = {
+  x,
+  y
+};
+
+console.log(`Value obj:`, JSON.stringify(obj));</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">Value obj: {"x":1,"y":2}</code></pre>
+                    </div>
+                </div>
+            </section>
+            <br/>
+            <!-- Computed Property Names-->
+            <section id="computed-property-names">
+                <div class="row">
+                    <div class="col">
+                        <h4>Computed Property Names</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Support for computed names in object property definitions.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">let quux = () => ` foo`;
+
+let obj2 = {
+  foo: "bar",
+  ["baz" + quux()]: 42
+};
+
+console.log(`Value obj2:`, JSON.stringify(obj2));</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">Value obj2: {"foo":"bar","baz foo":42}</code></pre>
+                    </div>
+                </div>
+            </section>
+            <br/>
+            <!-- Method Properties-->
+            <section id="method-properties">
+                <div class="row">
+                    <div class="col">
+                        <h4>Method Properties</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Support for method notation in object property definitions, for both regular functions and generator functions.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">let obj3 = {
+foo(a, b) {
+  a + b;
+},
+bar(x, y) {
+  x * y;
+},
+* quux2(x, y) {
+  x + y;
+}
+};
+
+console.log(`Value obj3:`, obj3);</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">Value obj3: Object {foo: function, bar: function, quux2: function}</code></pre>
                     </div>
                 </div>
             </section>
