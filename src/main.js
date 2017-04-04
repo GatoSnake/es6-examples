@@ -1,5 +1,4 @@
 require("babel-polyfill");
-//const aggregation = require('aggregation/es5');
 
 require('./constants');
 require('./scoping');

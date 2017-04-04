@@ -53,7 +53,6 @@ To run the examples you need to have npm installed.
 * Modules
 	* Value Export/Import
 	* Default & Wildcard
-* ********************************** IN PROGRESS **********************************
 * Classes
 	* Class Definition
 	* Class Inheritance
@@ -61,6 +60,7 @@ To run the examples you need to have npm installed.
 	* Base Class Access
 	* Static Members
 	* Getter/Setter
+* ********************************** IN PROGRESS **********************************
 * Symbol Type
 	* Symbol Type
 	* Global Symbols
