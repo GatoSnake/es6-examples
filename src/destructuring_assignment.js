@@ -1,8 +1,8 @@
 {
     console.log(`
-      ************** Destructuring Assignment **************
+      ************** Destructuring Assignment examples **************
 
-                      === Array Matching ===
+                          === Array Matching ===
                       `);
 
     var list = [1, 2, 3];
@@ -15,7 +15,7 @@
     console.log(`Value b:`, b);
 
     console.log(`
-            === Object Matching, Shorthand Notation ===
+                === Object Matching, Shorthand Notation ===
               `);
 
     function getASTNode() {
@@ -37,7 +37,7 @@
     console.log(`Value rhs:`, rhs);
 
     console.log(`
-              === Object Matching, Deep Matching ===
+                 === Object Matching, Deep Matching ===
               `);
 
     function getASTNode2() {
@@ -63,7 +63,7 @@
     console.log(`Value c:`, c);
 
     console.log(`
-         === Object And Array Matching, Default Values ===
+            === Object And Array Matching, Default Values ===
               `);
 
     var obj = {
@@ -84,7 +84,7 @@
     console.log(`Value y:`, y);
 
     console.log(`
-                === Parameter Context Matching ===
+                   === Parameter Context Matching ===
               `);
 
     function f([name, val]) {
@@ -104,7 +104,7 @@
     h({name: "bar", val: 42});
 
     console.log(`
-                 === Fail-Soft Destructuring ===
+                    === Fail-Soft Destructuring ===
               `);
 
     var list = [7, 42];

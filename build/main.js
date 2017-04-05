@@ -7061,7 +7061,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 {
-    console.log('\n      ************** Classes **************\n\n            === Class Definition ===\n                      ');
+    console.log('\n      ************** Classes examples **************\n\n                 === Class Definition ===\n                      ');
 
     var Shape = function () {
         function Shape(id, x, y) {
@@ -7095,7 +7095,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     shape.move(15, 35);
     console.log('Shape pos:', JSON.stringify(shape.getPos()));
 
-    console.log('\n           === Class Inheritance ===\n              ');
+    console.log('\n                === Class Inheritance ===\n              ');
 
     var Rectangle = function (_Shape) {
         _inherits(Rectangle, _Shape);
@@ -7144,7 +7144,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var circle = new Circle(2, 80, 90, 50);
     console.log('Circle pos:', JSON.stringify(circle.getPos()));
 
-    console.log('\n    === Class Inheritance, From Expressions ===\n      ');
+    console.log('\n        === Class Inheritance, From Expressions ===\n      ');
 
     {
         var aggregation = function aggregation(baseClass) {
@@ -7280,7 +7280,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         console.log('Rectangle data:\n  pos x: ' + rect.x + '\n  pos y: ' + rect.y + '\n  pos z: ' + rect.z + '\n  color: ' + rect.color);
     }
 
-    console.log('\n            === Base Class Access ===\n      ');
+    console.log('\n                === Base Class Access ===\n      ');
 
     {
         var _Shape4 = function () {
@@ -7348,7 +7348,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         console.log(_circle.toString());
     }
 
-    console.log('\n              === Static Members ===\n      ');
+    console.log('\n                  === Static Members ===\n      ');
 
     {
         var _Rectangle3 = function (_Shape7) {
@@ -7402,7 +7402,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         console.log('Circle data:', JSON.stringify(_circle2));
     }
 
-    console.log('\n              === Getter/Setter ===\n      ');
+    console.log('\n                  === Getter/Setter ===\n      ');
 
     {
         var _Rectangle4 = function () {
@@ -7450,7 +7450,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 "use strict";
 
 {
-  console.log("\n      ************** Constants examples **************\n      ");
+  console.log("\n      ************** Constants examples **************\n\n                     === Constants ===\n      ");
   var PI = 3.141593;
   console.log("Compare constant PI > 3.0:", PI > 3.0);
 }
@@ -7501,7 +7501,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
         console.log(name, val);
     };
 
-    console.log("\n      ************** Destructuring Assignment **************\n\n                      === Array Matching ===\n                      ");
+    console.log("\n      ************** Destructuring Assignment examples **************\n\n                          === Array Matching ===\n                      ");
 
     var list = [1, 2, 3];
     var a = list[0],
@@ -7517,7 +7517,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
     console.log("Value a:", a);
     console.log("Value b:", b);
 
-    console.log("\n            === Object Matching, Shorthand Notation ===\n              ");
+    console.log("\n                === Object Matching, Shorthand Notation ===\n              ");
 
     ;
 
@@ -7530,7 +7530,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
     console.log("Value lhs:", lhs);
     console.log("Value rhs:", rhs);
 
-    console.log("\n              === Object Matching, Deep Matching ===\n              ");
+    console.log("\n                 === Object Matching, Deep Matching ===\n              ");
 
     ;
 
@@ -7543,7 +7543,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
     console.log("Value b:", b);
     console.log("Value c:", c);
 
-    console.log("\n         === Object And Array Matching, Default Values ===\n              ");
+    console.log("\n            === Object And Array Matching, Default Values ===\n              ");
 
     var obj = {
         a: 1
@@ -7565,13 +7565,13 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
     console.log("Value x:", x);
     console.log("Value y:", y);
 
-    console.log("\n                === Parameter Context Matching ===\n              ");
+    console.log("\n                   === Parameter Context Matching ===\n              ");
 
     f(["bar", 42]);
     g({ name: "foo", val: 7 });
     h({ name: "bar", val: 42 });
 
-    console.log("\n                 === Fail-Soft Destructuring ===\n              ");
+    console.log("\n                    === Fail-Soft Destructuring ===\n              ");
 
     var list = [7, 42];
     var _list$2 = list[0],
@@ -7841,8 +7841,9 @@ require('./destructuring_assignment');
 require('./modules');
 require('./modules2');
 require('./classes');
+require('./symbol_type');
 
-},{"./arrow_functions":298,"./classes":299,"./constants":300,"./destructuring_assignment":301,"./enhanced_object_properties":302,"./enhanced_regular_expression":303,"./extended_literals":304,"./extended_parameter_handling":305,"./modules":309,"./modules2":310,"./scoping":311,"./template_literals":312,"babel-polyfill":1}],309:[function(require,module,exports){
+},{"./arrow_functions":298,"./classes":299,"./constants":300,"./destructuring_assignment":301,"./enhanced_object_properties":302,"./enhanced_regular_expression":303,"./extended_literals":304,"./extended_parameter_handling":305,"./modules":309,"./modules2":310,"./scoping":311,"./symbol_type":312,"./template_literals":313,"babel-polyfill":1}],309:[function(require,module,exports){
 "use strict";
 
 var _math = require("./lib/math");
@@ -7935,6 +7936,53 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 }
 
 },{}],312:[function(require,module,exports){
+"use strict";
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+{
+    console.log("\n        ************** Symbol Type examples **************\n\n                       === Symbol Type ===\n        ");
+
+    console.log("Symbol(\"foo\"):", Symbol('foo'));
+    console.log("Symbol(\"foo\") !== Symbol(\"foo\"):", Symbol("foo") !== Symbol("foo"));
+
+    var foo = Symbol();
+    var bar = Symbol();
+    console.log("typeof foo === \"symbol\":", (typeof foo === "undefined" ? "undefined" : _typeof(foo)) === 'symbol');
+    console.log("typeof bar === \"symbol\":", (typeof bar === "undefined" ? "undefined" : _typeof(bar)) === 'symbol');
+
+    var obj = {};
+    obj[foo] = "foo";
+    obj[bar] = "bar";
+    console.log("Value obj:", JSON.stringify(obj));
+    console.log("Value Object.keys(obj):", Object.keys(obj));
+    console.log("Value Object.getOwnPropertyNames(obj):", Object.getOwnPropertyNames(obj));
+    console.log("Value Object.getOwnPropertySymbols(obj):", Object.getOwnPropertySymbols(obj));
+    console.log("Value obj[\"foo\"]:", obj['foo']);
+    console.log("Value obj[foo]:", obj[foo]);
+
+    console.log("\n                     === Global Symbols ===\n              ");
+
+    {
+        console.log("Symbol.for(\"app.foo\") === Symbol.for(\"app.foo\"):", Symbol.for("app.foo") === Symbol.for("app.foo"));
+        var _foo = Symbol.for("app.foo");
+        var _bar = Symbol.for("app.bar");
+        console.log("Symbol.keyFor(foo) === \"app.foo\":", Symbol.keyFor(_foo) === "app.foo");
+        console.log("Symbol.keyFor(bar) === \"app.bar\":", Symbol.keyFor(_bar) === "app.bar");
+        console.log("typeof foo === \"symbol\":", (typeof _foo === "undefined" ? "undefined" : _typeof(_foo)) === "symbol");
+        console.log("typeof bar === \"symbol\":", (typeof _bar === "undefined" ? "undefined" : _typeof(_bar)) === "symbol");
+        var _obj = {};
+        _obj[_foo] = "foo";
+        _obj[_bar] = "bar";
+        console.log("Value obj:", JSON.stringify(_obj));
+        console.log("Value Object.keys(obj):", Object.keys(_obj));
+        console.log("Value Object.getOwnPropertyNames(obj):", Object.getOwnPropertyNames(_obj));
+        console.log("Value Object.getOwnPropertySymbols(obj):", Object.getOwnPropertySymbols(_obj));
+        console.log("Value obj[foo]:", _obj[_foo]);
+    }
+}
+
+},{}],313:[function(require,module,exports){
 "use strict";
 
 var _templateObject = _taggedTemplateLiteral(["http://example.com/foo?bar=", "&quux=", ""], ["http://example.com/foo?bar=", "&quux=", ""]),

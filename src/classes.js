@@ -1,8 +1,8 @@
 {
     console.log(`
-      ************** Classes **************
+      ************** Classes examples **************
 
-            === Class Definition ===
+                 === Class Definition ===
                       `);
 
     class Shape {
@@ -28,7 +28,7 @@
     console.log(`Shape pos:`, JSON.stringify(shape.getPos()));
 
     console.log(`
-           === Class Inheritance ===
+                === Class Inheritance ===
               `);
 
     class Rectangle extends Shape {
@@ -59,7 +59,7 @@
     console.log(`Circle pos:`, JSON.stringify(circle.getPos()));
 
     console.log(`
-    === Class Inheritance, From Expressions ===
+        === Class Inheritance, From Expressions ===
       `);
 
     {
@@ -144,7 +144,7 @@
     }
 
     console.log(`
-            === Base Class Access ===
+                === Base Class Access ===
       `);
 
     {
@@ -184,7 +184,7 @@
     }
 
     console.log(`
-              === Static Members ===
+                  === Static Members ===
       `);
 
     {
@@ -215,7 +215,7 @@
     }
 
     console.log(`
-              === Getter/Setter ===
+                  === Getter/Setter ===
       `);
 
     {

@@ -12,3 +12,4 @@ require('./destructuring_assignment');
 require('./modules');
 require('./modules2');
 require('./classes');
+require('./symbol_type');
