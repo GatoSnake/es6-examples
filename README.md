@@ -60,10 +60,10 @@ To run the examples you need to have npm installed.
 	* Base Class Access
 	* Static Members
 	* Getter/Setter
-* ********************************** IN PROGRESS **********************************
 * Symbol Type
 	* Symbol Type
 	* Global Symbols
+* ********************************** IN PROGRESS **********************************
 * Iterators  
 	* Iterator & For-Of Operator
 * Generators

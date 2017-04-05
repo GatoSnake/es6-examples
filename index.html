@@ -98,6 +98,10 @@
                             <a class="dropdown-item" href="#base-class-access">Base Class Access</a>
                             <a class="dropdown-item" href="#static-members">Static Members</a>
                             <a class="dropdown-item" href="#getter-setter">Getter/Setter</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-header h6" href="#symbol-type">Symbol Type</a>
+                            <a class="dropdown-item" href="#symbol-type-01">Symbol Type</a>
+                            <a class="dropdown-item" href="#global-symbols">Global Symbols</a>
                         </div>
                     </li>
                 </ul>
@@ -1469,6 +1473,113 @@ console.log(`Compare rectangle.area === 1000:`, r.area === 1000);</code></pre>
                     <div class="col-12 col-md-6">
                         <h6>Result</h6>
                         <pre><code class="language-javascript">Compare rectangle.area === 1000: true</code></pre>
+                    </div>
+                </div>
+            </section>
+        </article>
+        <br/>
+        <!-- Symbol Type -->
+        <article id="symbol-type">
+            <div class="row">
+                <div class="col">
+                    <h2>Symbol Type</h2>
+                    <br/>
+                </div>
+            </div>
+            <!-- Symbol Type-->
+            <section id="symbol-type-01">
+                <div class="row">
+                    <div class="col">
+                        <h4>Symbol Type</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Unique and immutable data type to be used as an identifier for object properties. Symbol can have an optional description, but for debugging purposes only.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">console.log(`Symbol("foo"):`, Symbol('foo'));
+console.log(`Symbol("foo") !== Symbol("foo"):`, Symbol("foo") !== Symbol("foo"));
+
+const foo = Symbol();
+const bar = Symbol();
+console.log(`typeof foo === "symbol":`, typeof foo === 'symbol');
+console.log(`typeof bar === "symbol":`, typeof bar === 'symbol');
+
+let obj = {};
+obj[foo] = "foo";
+obj[bar] = "bar";
+console.log(`Value obj:`, JSON.stringify(obj));
+console.log(`Value Object.keys(obj):`, Object.keys(obj));
+console.log(`Value Object.getOwnPropertyNames(obj):`, Object.getOwnPropertyNames(obj));
+console.log(`Value Object.getOwnPropertySymbols(obj):`, Object.getOwnPropertySymbols(obj));
+console.log(`Value obj["foo"]:`, obj['foo']);
+console.log(`Value obj[foo]:`, obj[foo]);</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">Symbol("foo"): Symbol(foo)
+Symbol("foo") !== Symbol("foo"): true
+typeof foo === "symbol": true
+typeof bar === "symbol": true
+Value obj: {}
+Value Object.keys(obj): []
+Value Object.getOwnPropertyNames(obj): []
+Value Object.getOwnPropertySymbols(obj): [Symbol(), Symbol()]
+Value obj["foo"]: undefined
+Value obj[foo]: foo</code></pre>
+                    </div>
+                </div>
+            </section>
+            <br/>
+            <!-- Global Symbols-->
+            <section id="global-symbols">
+                <div class="row">
+                    <div class="col">
+                        <h4>Global Symbols</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Global symbols, indexed through unique keys.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">console.log(`Symbol.for("app.foo") === Symbol.for("app.foo"):`, Symbol.for("app.foo") === Symbol.for("app.foo"));
+
+const foo = Symbol.for("app.foo");
+const bar = Symbol.for("app.bar");
+console.log(`Symbol.keyFor(foo) === "app.foo":`, Symbol.keyFor(foo) === "app.foo");
+console.log(`Symbol.keyFor(bar) === "app.bar":`, Symbol.keyFor(bar) === "app.bar");
+console.log(`typeof foo === "symbol":`, typeof foo === "symbol");
+console.log(`typeof bar === "symbol":`, typeof bar === "symbol");
+
+let obj = {};
+obj[foo] = "foo";
+obj[bar] = "bar";
+console.log(`Value obj:`, JSON.stringify(obj));
+console.log(`Value Object.keys(obj):`, Object.keys(obj));
+console.log(`Value Object.getOwnPropertyNames(obj):`, Object.getOwnPropertyNames(obj));
+console.log(`Value Object.getOwnPropertySymbols(obj):`, Object.getOwnPropertySymbols(obj));
+console.log(`Value obj[foo]:`, obj[foo]);</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">Symbol.for("app.foo") === Symbol.for("app.foo"): true
+Symbol.keyFor(foo) === "app.foo": true
+Symbol.keyFor(bar) === "app.bar": true
+typeof foo === "symbol": true
+typeof bar === "symbol": true
+Value obj: {}
+Value Object.keys(obj): []
+Value Object.getOwnPropertyNames(obj): []
+Value Object.getOwnPropertySymbols(obj): [Symbol(app.foo), Symbol(app.bar)]
+Value obj[foo]: foo</code></pre>
                     </div>
                 </div>
             </section>
