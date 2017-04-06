@@ -7790,6 +7790,282 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 },{}],306:[function(require,module,exports){
 "use strict";
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+function _toArray(arr) { return Array.isArray(arr) ? arr : Array.from(arr); }
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+{
+    console.log("\n        ************** Generators examples **************\n\n          === Generator Function, Iterator Protocol ===\n        ");
+
+    {
+        var fibonacci = _defineProperty({}, Symbol.iterator, regeneratorRuntime.mark(function _callee() {
+            var pre, cur, _ref;
+
+            return regeneratorRuntime.wrap(function _callee$(_context) {
+                while (1) {
+                    switch (_context.prev = _context.next) {
+                        case 0:
+                            pre = 0, cur = 1;
+
+                        case 1:
+                            _ref = [cur, pre + cur];
+                            pre = _ref[0];
+                            cur = _ref[1];
+                            _context.next = 6;
+                            return cur;
+
+                        case 6:
+                            _context.next = 1;
+                            break;
+
+                        case 8:
+                        case "end":
+                            return _context.stop();
+                    }
+                }
+            }, _callee, this);
+        }));
+
+        var _iteratorNormalCompletion = true;
+        var _didIteratorError = false;
+        var _iteratorError = undefined;
+
+        try {
+            for (var _iterator = fibonacci[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                var n = _step.value;
+
+                if (n > 1000) break;
+                console.log("Current value fibonacci:", n);
+            }
+        } catch (err) {
+            _didIteratorError = true;
+            _iteratorError = err;
+        } finally {
+            try {
+                if (!_iteratorNormalCompletion && _iterator.return) {
+                    _iterator.return();
+                }
+            } finally {
+                if (_didIteratorError) {
+                    throw _iteratorError;
+                }
+            }
+        }
+    }
+
+    console.log("\n             === Generator Function, Direct Use ===\n    ");
+
+    {
+        var range = regeneratorRuntime.mark(function range(start, end, step) {
+            return regeneratorRuntime.wrap(function range$(_context2) {
+                while (1) {
+                    switch (_context2.prev = _context2.next) {
+                        case 0:
+                            if (!(start < end)) {
+                                _context2.next = 6;
+                                break;
+                            }
+
+                            _context2.next = 3;
+                            return start;
+
+                        case 3:
+                            start += step;
+                            _context2.next = 0;
+                            break;
+
+                        case 6:
+                        case "end":
+                            return _context2.stop();
+                    }
+                }
+            }, range, this);
+        });
+        var _iteratorNormalCompletion2 = true;
+        var _didIteratorError2 = false;
+        var _iteratorError2 = undefined;
+
+        try {
+
+            for (var _iterator2 = range(0, 10, 2)[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+                var i = _step2.value;
+
+                console.log("Current value range:", i);
+            }
+        } catch (err) {
+            _didIteratorError2 = true;
+            _iteratorError2 = err;
+        } finally {
+            try {
+                if (!_iteratorNormalCompletion2 && _iterator2.return) {
+                    _iterator2.return();
+                }
+            } finally {
+                if (_didIteratorError2) {
+                    throw _iteratorError2;
+                }
+            }
+        }
+    }
+
+    console.log("\n                  === Generator Matching ===\n    ");
+
+    {
+        var _fibonacci2 = regeneratorRuntime.mark(function _fibonacci2(numbers) {
+            var pre, cur, _ref2;
+
+            return regeneratorRuntime.wrap(function _fibonacci2$(_context3) {
+                while (1) {
+                    switch (_context3.prev = _context3.next) {
+                        case 0:
+                            pre = 0, cur = 1;
+
+                        case 1:
+                            if (!(numbers-- > 0)) {
+                                _context3.next = 9;
+                                break;
+                            }
+
+                            _ref2 = [cur, pre + cur];
+                            pre = _ref2[0];
+                            cur = _ref2[1];
+                            _context3.next = 7;
+                            return cur;
+
+                        case 7:
+                            _context3.next = 1;
+                            break;
+
+                        case 9:
+                        case "end":
+                            return _context3.stop();
+                    }
+                }
+            }, _fibonacci2, this);
+        });
+
+        var _iteratorNormalCompletion3 = true;
+        var _didIteratorError3 = false;
+        var _iteratorError3 = undefined;
+
+        try {
+            for (var _iterator3 = _fibonacci2(10)[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+                var _n = _step3.value;
+
+                console.log("Current value fibonacci:", _n);
+            }
+        } catch (err) {
+            _didIteratorError3 = true;
+            _iteratorError3 = err;
+        } finally {
+            try {
+                if (!_iteratorNormalCompletion3 && _iterator3.return) {
+                    _iterator3.return();
+                }
+            } finally {
+                if (_didIteratorError3) {
+                    throw _iteratorError3;
+                }
+            }
+        }
+
+        var numbers = [].concat(_toConsumableArray(_fibonacci2(10)));
+        console.log("Value numbers:", JSON.stringify(numbers));
+
+        var _fibonacci3 = _fibonacci2(10),
+            _fibonacci4 = _toArray(_fibonacci3),
+            n1 = _fibonacci4[0],
+            n2 = _fibonacci4[1],
+            n3 = _fibonacci4[2],
+            others = _fibonacci4.slice(3);
+
+        console.log("Values n1, n2, n3, others:", n1, n2, n3, others);
+    }
+
+    console.log("\n                === Generator Control-Flow ===\n    ");
+
+    {
+        //  generic asynchronous control-flow driver
+        var async = function async(proc) {
+            for (var _len = arguments.length, params = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+                params[_key - 1] = arguments[_key];
+            }
+
+            var iterator = proc.apply(undefined, params);
+            return new Promise(function (resolve, reject) {
+                var loop = function loop(value) {
+                    var result = void 0;
+                    try {
+                        result = iterator.next(value);
+                    } catch (err) {
+                        reject(err);
+                    }
+                    if (result.done) resolve(result.value);else if (_typeof(result.value) === "object" && typeof result.value.then === "function") result.value.then(function (value) {
+                        loop(value);
+                    }, function (err) {
+                        reject(err);
+                    });else loop(result.value);
+                };
+                loop();
+            });
+        };
+
+        //  application-specific asynchronous builder
+
+
+        var makeAsync = function makeAsync(text, after) {
+            return new Promise(function (resolve, reject) {
+                setTimeout(function () {
+                    return resolve(text);
+                }, after);
+            });
+        };
+
+        //  application-specific asynchronous procedure
+
+
+        async(regeneratorRuntime.mark(function _callee2(greeting) {
+            var foo, bar, baz;
+            return regeneratorRuntime.wrap(function _callee2$(_context4) {
+                while (1) {
+                    switch (_context4.prev = _context4.next) {
+                        case 0:
+                            _context4.next = 2;
+                            return makeAsync("foo", 300);
+
+                        case 2:
+                            foo = _context4.sent;
+                            _context4.next = 5;
+                            return makeAsync("bar", 600);
+
+                        case 5:
+                            bar = _context4.sent;
+                            _context4.next = 8;
+                            return makeAsync("baz", 100);
+
+                        case 8:
+                            baz = _context4.sent;
+                            return _context4.abrupt("return", greeting + " " + foo + " " + bar + " " + baz);
+
+                        case 10:
+                        case "end":
+                            return _context4.stop();
+                    }
+                }
+            }, _callee2, this);
+        }), "Hello").then(function (msg) {
+            console.log("RESULT:", msg);
+        });
+    }
+}
+
+},{}],307:[function(require,module,exports){
+"use strict";
+
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
@@ -7800,7 +8076,7 @@ function sum(x, y) {
 
 var pi = exports.pi = 3.141593;
 
-},{}],307:[function(require,module,exports){
+},{}],308:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -7824,7 +8100,7 @@ exports.default = function (x) {
   return Math.exp(x);
 };
 
-},{"./math":306}],308:[function(require,module,exports){
+},{"./math":307}],309:[function(require,module,exports){
 'use strict';
 
 require("babel-polyfill");
@@ -7842,8 +8118,9 @@ require('./modules');
 require('./modules2');
 require('./classes');
 require('./symbol_type');
+require('./generators');
 
-},{"./arrow_functions":298,"./classes":299,"./constants":300,"./destructuring_assignment":301,"./enhanced_object_properties":302,"./enhanced_regular_expression":303,"./extended_literals":304,"./extended_parameter_handling":305,"./modules":309,"./modules2":310,"./scoping":311,"./symbol_type":312,"./template_literals":313,"babel-polyfill":1}],309:[function(require,module,exports){
+},{"./arrow_functions":298,"./classes":299,"./constants":300,"./destructuring_assignment":301,"./enhanced_object_properties":302,"./enhanced_regular_expression":303,"./extended_literals":304,"./extended_parameter_handling":305,"./generators":306,"./modules":310,"./modules2":311,"./scoping":312,"./symbol_type":313,"./template_literals":314,"babel-polyfill":1}],310:[function(require,module,exports){
 "use strict";
 
 var _math = require("./lib/math");
@@ -7859,7 +8136,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
     console.log("2π = ", (0, _math.sum)(_math.pi, _math.pi));
 }
 
-},{"./lib/math":306}],310:[function(require,module,exports){
+},{"./lib/math":307}],311:[function(require,module,exports){
 'use strict';
 
 var _mathplusplus = require('./lib/mathplusplus');
@@ -7875,7 +8152,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     console.log('e^{\u03C0}:', (0, _mathplusplus2.default)(_mathplusplus.pi));
 }
 
-},{"./lib/mathplusplus":307}],311:[function(require,module,exports){
+},{"./lib/mathplusplus":308}],312:[function(require,module,exports){
 'use strict';
 
 {
@@ -7935,7 +8212,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     }
 }
 
-},{}],312:[function(require,module,exports){
+},{}],313:[function(require,module,exports){
 "use strict";
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -7965,12 +8242,14 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     {
         console.log("Symbol.for(\"app.foo\") === Symbol.for(\"app.foo\"):", Symbol.for("app.foo") === Symbol.for("app.foo"));
+
         var _foo = Symbol.for("app.foo");
         var _bar = Symbol.for("app.bar");
         console.log("Symbol.keyFor(foo) === \"app.foo\":", Symbol.keyFor(_foo) === "app.foo");
         console.log("Symbol.keyFor(bar) === \"app.bar\":", Symbol.keyFor(_bar) === "app.bar");
         console.log("typeof foo === \"symbol\":", (typeof _foo === "undefined" ? "undefined" : _typeof(_foo)) === "symbol");
         console.log("typeof bar === \"symbol\":", (typeof _bar === "undefined" ? "undefined" : _typeof(_bar)) === "symbol");
+
         var _obj = {};
         _obj[_foo] = "foo";
         _obj[_bar] = "bar";
@@ -7982,7 +8261,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     }
 }
 
-},{}],313:[function(require,module,exports){
+},{}],314:[function(require,module,exports){
 "use strict";
 
 var _templateObject = _taggedTemplateLiteral(["http://example.com/foo?bar=", "&quux=", ""], ["http://example.com/foo?bar=", "&quux=", ""]),
@@ -8033,4 +8312,4 @@ function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defi
     console.log("Compare String.war:", String.raw(_templateObject2, 42) === "foo\\n42bar");
 }
 
-},{}]},{},[308]);
+},{}]},{},[309]);
