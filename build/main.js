@@ -8136,6 +8136,60 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 },{}],307:[function(require,module,exports){
 "use strict";
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+{
+    console.log("\n        ************** Iterators examples **************\n\n               === Iterator & For-Of Operator ===\n        ");
+
+    {
+        var fibonacci = _defineProperty({}, Symbol.iterator, function () {
+            var pre = 0,
+                cur = 1;
+            return {
+                next: function next() {
+                    var _ref = [cur, pre + cur];
+                    pre = _ref[0];
+                    cur = _ref[1];
+
+                    return {
+                        done: false,
+                        value: cur
+                    };
+                }
+            };
+        });
+
+        var _iteratorNormalCompletion = true;
+        var _didIteratorError = false;
+        var _iteratorError = undefined;
+
+        try {
+            for (var _iterator = fibonacci[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                var n = _step.value;
+
+                if (n > 1000) break;
+                console.log("Current value fibonacci:", n);
+            }
+        } catch (err) {
+            _didIteratorError = true;
+            _iteratorError = err;
+        } finally {
+            try {
+                if (!_iteratorNormalCompletion && _iterator.return) {
+                    _iterator.return();
+                }
+            } finally {
+                if (_didIteratorError) {
+                    throw _iteratorError;
+                }
+            }
+        }
+    }
+}
+
+},{}],308:[function(require,module,exports){
+"use strict";
+
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
@@ -8146,7 +8200,7 @@ function sum(x, y) {
 
 var pi = exports.pi = 3.141593;
 
-},{}],308:[function(require,module,exports){
+},{}],309:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -8170,7 +8224,7 @@ exports.default = function (x) {
   return Math.exp(x);
 };
 
-},{"./math":307}],309:[function(require,module,exports){
+},{"./math":308}],310:[function(require,module,exports){
 'use strict';
 
 require("babel-polyfill");
@@ -8188,9 +8242,10 @@ require('./modules');
 require('./modules2');
 require('./classes');
 require('./symbol_type');
+require('./iterators');
 require('./generators');
 
-},{"./arrow_functions":298,"./classes":299,"./constants":300,"./destructuring_assignment":301,"./enhanced_object_properties":302,"./enhanced_regular_expression":303,"./extended_literals":304,"./extended_parameter_handling":305,"./generators":306,"./modules":310,"./modules2":311,"./scoping":312,"./symbol_type":313,"./template_literals":314,"babel-polyfill":1}],310:[function(require,module,exports){
+},{"./arrow_functions":298,"./classes":299,"./constants":300,"./destructuring_assignment":301,"./enhanced_object_properties":302,"./enhanced_regular_expression":303,"./extended_literals":304,"./extended_parameter_handling":305,"./generators":306,"./iterators":307,"./modules":311,"./modules2":312,"./scoping":313,"./symbol_type":314,"./template_literals":315,"babel-polyfill":1}],311:[function(require,module,exports){
 "use strict";
 
 var _math = require("./lib/math");
@@ -8206,7 +8261,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
     console.log("2π = ", (0, _math.sum)(_math.pi, _math.pi));
 }
 
-},{"./lib/math":307}],311:[function(require,module,exports){
+},{"./lib/math":308}],312:[function(require,module,exports){
 'use strict';
 
 var _mathplusplus = require('./lib/mathplusplus');
@@ -8222,7 +8277,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     console.log('e^{\u03C0}:', (0, _mathplusplus2.default)(_mathplusplus.pi));
 }
 
-},{"./lib/mathplusplus":308}],312:[function(require,module,exports){
+},{"./lib/mathplusplus":309}],313:[function(require,module,exports){
 'use strict';
 
 {
@@ -8282,7 +8337,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     }
 }
 
-},{}],313:[function(require,module,exports){
+},{}],314:[function(require,module,exports){
 "use strict";
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -8331,7 +8386,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     }
 }
 
-},{}],314:[function(require,module,exports){
+},{}],315:[function(require,module,exports){
 "use strict";
 
 var _templateObject = _taggedTemplateLiteral(["http://example.com/foo?bar=", "&quux=", ""], ["http://example.com/foo?bar=", "&quux=", ""]),
@@ -8382,4 +8437,4 @@ function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defi
     console.log("Compare String.war:", String.raw(_templateObject2, 42) === "foo\\n42bar");
 }
 
-},{}]},{},[309]);
+},{}]},{},[310]);

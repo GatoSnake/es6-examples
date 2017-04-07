@@ -90,12 +90,14 @@
                             <a class="dropdown-item" href="#symbol-type-01">Symbol Type</a>
                             <a class="dropdown-item" href="#global-symbols">Global Symbols</a>
                             <div class="dropdown-divider"></div>
+                            <a class="dropdown-header h6" href="#iterators">Iterators</a>
+                            <a class="dropdown-item" href="#iterator-and-for-of-operator">Iterator & For-Of Operator</a>
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-header h6" href="#generators">Generators</a>
                             <a class="dropdown-item" href="#generator-function-iterator-protocol">Generator Function, Iterator Protocol</a>
                             <a class="dropdown-item" href="#generator-function-direct-use">Generator Function, Direct Use</a>
                             <a class="dropdown-item" href="#generator-matching">Generator Matching</a>
-                            <a class="dropdown-item" href="#generator-control-flow">Generator Control-Flow
-</a>
+                            <a class="dropdown-item" href="#generator-control-flow">Generator Control-Flow</a>
                             <a class="dropdown-item" href="#generator-methods">Generator Methods</a>
                         </div>
                     </li>
@@ -1575,6 +1577,73 @@ Value Object.keys(obj): []
 Value Object.getOwnPropertyNames(obj): []
 Value Object.getOwnPropertySymbols(obj): [Symbol(app.foo), Symbol(app.bar)]
 Value obj[foo]: foo</code></pre>
+                    </div>
+                </div>
+            </section>
+        </article>
+        <br/>
+        <!-- Iterators -->
+        <article id="iterators">
+            <div class="row">
+                <div class="col">
+                    <h2>Iterators</h2>
+                    <br/>
+                </div>
+            </div>
+            <!-- Iterator & For-Of Operator-->
+            <section id="iterator-and-for-of-operator">
+                <div class="row">
+                    <div class="col">
+                        <h4>Iterator & For-Of Operator</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Support "iterable" protocol to allow objects to customize their iteration behaviour. Additionally, support "iterator" protocol to produce sequence of values (either finite or infinite). Finally, provide convenient of operator to iterate over all values of an iterable object.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">let fibonacci = {
+  [Symbol.iterator]() {
+    let pre = 0,
+      cur = 1;
+    return {
+      next() {
+        [pre, cur] = [cur, pre + cur];
+        return {
+          done: false,
+          value: cur
+        };
+      }
+    };
+  }
+}
+
+for (let n of fibonacci) {
+  if (n > 1000)
+    break;
+  console.log(`Current value fibonacci:`, n);
+}</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">Current value fibonacci: 1
+Current value fibonacci: 2
+Current value fibonacci: 3
+Current value fibonacci: 5
+Current value fibonacci: 8
+Current value fibonacci: 13
+Current value fibonacci: 21
+Current value fibonacci: 34
+Current value fibonacci: 55
+Current value fibonacci: 89
+Current value fibonacci: 144
+Current value fibonacci: 233
+Current value fibonacci: 377
+Current value fibonacci: 610
+Current value fibonacci: 987</code></pre>
                     </div>
                 </div>
             </section>
