@@ -7711,41 +7711,41 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 "use strict";
 
 {
-    console.log("\n      ************** Extended literals examples **************\n\n                   === Binary & Octal Literal ===\n                   ");
+          console.log("\n      ************** Extended literals examples **************\n\n                   === Binary & Octal Literal ===\n                   ");
 
-    console.log("Compare binary 0b111110111 === 503:", 503 === 503);
-    console.log("Compare octal 0o767 === 503:", 503 === 503);
+          console.log("Compare binary 0b111110111 === 503:", 503 === 503);
+          console.log("Compare octal 0o767 === 503:", 503 === 503);
 
-    console.log("\n              === Unicode String & RegExp Literal ===\n              ");
+          console.log("\n              === Unicode String & RegExp Literal ===\n              ");
 
-    console.log("Compare \"\uD842\uDFB7\".length === 2:", "𠮷".length === 2);
-    console.log("Compare \"\uD842\uDFB7\".match(/./u)[0].length === 2:", "𠮷".match(/(?:[\0-\t\x0B\f\x0E-\u2027\u202A-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])/)[0].length === 2);
-    console.log("Compare \"\uD842\uDFB7\" === \"\\uD842\\uDFB7\":", "𠮷" === "\uD842\uDFB7");
-    console.log("Compare \"\uD842\uDFB7\" === \"\\u{20BB7}\":", "𠮷" === "\uD842\uDFB7");
-    console.log("Compare \"\uD842\uDFB7\".codePointAt(0) == 0x20BB7:", "𠮷".codePointAt(0) == 0x20BB7);
-    var _iteratorNormalCompletion = true;
-    var _didIteratorError = false;
-    var _iteratorError = undefined;
+          console.log("Compare \"\uD842\uDFB7\".length === 2:", "𠮷".length === 2);
+          console.log("Compare \"\uD842\uDFB7\".match(/./u)[0].length === 2:", "𠮷".match(/(?:[\0-\t\x0B\f\x0E-\u2027\u202A-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])/)[0].length === 2);
+          console.log("Compare \"\uD842\uDFB7\" === \"\\uD842\\uDFB7\":", "𠮷" === "\uD842\uDFB7");
+          console.log("Compare \"\uD842\uDFB7\" === \"\\u{20BB7}\":", "𠮷" === "\uD842\uDFB7");
+          console.log("Compare \"\uD842\uDFB7\".codePointAt(0) == 0x20BB7:", "𠮷".codePointAt(0) == 0x20BB7);
+          var _iteratorNormalCompletion = true;
+          var _didIteratorError = false;
+          var _iteratorError = undefined;
 
-    try {
-        for (var _iterator = "𠮷"[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-            var codepoint = _step.value;
-            console.log("Value codepoint:", codepoint);
-        }
-    } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
-    } finally {
-        try {
-            if (!_iteratorNormalCompletion && _iterator.return) {
-                _iterator.return();
-            }
-        } finally {
-            if (_didIteratorError) {
-                throw _iteratorError;
-            }
-        }
-    }
+          try {
+                    for (var _iterator = "𠮷"[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                              var codepoint = _step.value;
+                              console.log("Value codepoint:", codepoint);
+                    }
+          } catch (err) {
+                    _didIteratorError = true;
+                    _iteratorError = err;
+          } finally {
+                    try {
+                              if (!_iteratorNormalCompletion && _iterator.return) {
+                                        _iterator.return();
+                              }
+                    } finally {
+                              if (_didIteratorError) {
+                                        throw _iteratorError;
+                              }
+                    }
+          }
 }
 
 },{}],305:[function(require,module,exports){
@@ -7788,9 +7788,13 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 }
 
 },{}],306:[function(require,module,exports){
-"use strict";
+'use strict';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _toArray(arr) { return Array.isArray(arr) ? arr : Array.from(arr); }
 
@@ -7799,7 +7803,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 {
-    console.log("\n        ************** Generators examples **************\n\n          === Generator Function, Iterator Protocol ===\n        ");
+    console.log('\n        ************** Generators examples **************\n\n          === Generator Function, Iterator Protocol ===\n        ');
 
     {
         var fibonacci = _defineProperty({}, Symbol.iterator, regeneratorRuntime.mark(function _callee() {
@@ -7823,7 +7827,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                             break;
 
                         case 8:
-                        case "end":
+                        case 'end':
                             return _context.stop();
                     }
                 }
@@ -7839,7 +7843,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 var n = _step.value;
 
                 if (n > 1000) break;
-                console.log("Current value fibonacci:", n);
+                console.log('Current value fibonacci:', n);
             }
         } catch (err) {
             _didIteratorError = true;
@@ -7857,7 +7861,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }
     }
 
-    console.log("\n             === Generator Function, Direct Use ===\n    ");
+    console.log('\n             === Generator Function, Direct Use ===\n    ');
 
     {
         var range = regeneratorRuntime.mark(function range(start, end, step) {
@@ -7879,7 +7883,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                             break;
 
                         case 6:
-                        case "end":
+                        case 'end':
                             return _context2.stop();
                     }
                 }
@@ -7894,7 +7898,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             for (var _iterator2 = range(0, 10, 2)[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
                 var i = _step2.value;
 
-                console.log("Current value range:", i);
+                console.log('Current value range:', i);
             }
         } catch (err) {
             _didIteratorError2 = true;
@@ -7912,7 +7916,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }
     }
 
-    console.log("\n                  === Generator Matching ===\n    ");
+    console.log('\n                  === Generator Matching ===\n    ');
 
     {
         var _fibonacci2 = regeneratorRuntime.mark(function _fibonacci2(numbers) {
@@ -7941,7 +7945,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                             break;
 
                         case 9:
-                        case "end":
+                        case 'end':
                             return _context3.stop();
                     }
                 }
@@ -7956,7 +7960,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             for (var _iterator3 = _fibonacci2(10)[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
                 var _n = _step3.value;
 
-                console.log("Current value fibonacci:", _n);
+                console.log('Current value fibonacci:', _n);
             }
         } catch (err) {
             _didIteratorError3 = true;
@@ -7974,7 +7978,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }
 
         var numbers = [].concat(_toConsumableArray(_fibonacci2(10)));
-        console.log("Value numbers:", JSON.stringify(numbers));
+        console.log('Value numbers:', JSON.stringify(numbers));
 
         var _fibonacci3 = _fibonacci2(10),
             _fibonacci4 = _toArray(_fibonacci3),
@@ -7983,10 +7987,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             n3 = _fibonacci4[2],
             others = _fibonacci4.slice(3);
 
-        console.log("Values n1, n2, n3, others:", n1, n2, n3, others);
+        console.log('Values n1, n2, n3, others:', n1, n2, n3, others);
     }
 
-    console.log("\n                === Generator Control-Flow ===\n    ");
+    console.log('\n                === Generator Control-Flow ===\n    ');
 
     {
         //  generic asynchronous control-flow driver
@@ -8004,7 +8008,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     } catch (err) {
                         reject(err);
                     }
-                    if (result.done) resolve(result.value);else if (_typeof(result.value) === "object" && typeof result.value.then === "function") result.value.then(function (value) {
+                    if (result.done) resolve(result.value);else if (_typeof(result.value) === 'object' && typeof result.value.then === 'function') result.value.then(function (value) {
                         loop(value);
                     }, function (err) {
                         reject(err);
@@ -8035,31 +8039,97 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     switch (_context4.prev = _context4.next) {
                         case 0:
                             _context4.next = 2;
-                            return makeAsync("foo", 300);
+                            return makeAsync('foo', 300);
 
                         case 2:
                             foo = _context4.sent;
                             _context4.next = 5;
-                            return makeAsync("bar", 600);
+                            return makeAsync('bar', 600);
 
                         case 5:
                             bar = _context4.sent;
                             _context4.next = 8;
-                            return makeAsync("baz", 100);
+                            return makeAsync('baz', 100);
 
                         case 8:
                             baz = _context4.sent;
-                            return _context4.abrupt("return", greeting + " " + foo + " " + bar + " " + baz);
+                            return _context4.abrupt('return', greeting + ' ' + foo + ' ' + bar + ' ' + baz);
 
                         case 10:
-                        case "end":
+                        case 'end':
                             return _context4.stop();
                     }
                 }
             }, _callee2, this);
-        }), "Hello").then(function (msg) {
-            console.log("RESULT:", msg);
+        }), 'Hello').then(function (msg) {
+            console.log('Result example Generator Control-Flow:', msg);
         });
+    }
+
+    console.log('\n                   === Generator Method ===\n    ');
+
+    {
+        var Clz = function () {
+            function Clz() {
+                _classCallCheck(this, Clz);
+            }
+
+            _createClass(Clz, [{
+                key: 'bar',
+                value: regeneratorRuntime.mark(function bar() {
+                    return regeneratorRuntime.wrap(function bar$(_context5) {
+                        while (1) {
+                            switch (_context5.prev = _context5.next) {
+                                case 0:
+                                    console.log('Hello bar');
+
+                                case 1:
+                                case 'end':
+                                    return _context5.stop();
+                            }
+                        }
+                    }, bar, this);
+                })
+            }]);
+
+            return Clz;
+        }();
+
+        ;
+        var Obj = {
+            foo: regeneratorRuntime.mark(function foo() {
+                return regeneratorRuntime.wrap(function foo$(_context6) {
+                    while (1) {
+                        switch (_context6.prev = _context6.next) {
+                            case 0:
+                                console.log('Hello foo');
+                                _context6.next = 3;
+                                return 1;
+
+                            case 3:
+                                console.log('Bye foo');
+                                _context6.next = 6;
+                                return 2;
+
+                            case 6:
+                                return _context6.abrupt('return', "finish!");
+
+                            case 7:
+                            case 'end':
+                                return _context6.stop();
+                        }
+                    }
+                }, foo, this);
+            })
+        };
+
+        var clz = new Clz();
+        console.log('Clz bar:', JSON.stringify(clz.bar().next()));
+
+        var obj = Obj.foo();
+        console.log('Obj.foo:', JSON.stringify(obj.next()));
+        console.log('Obj.foo:', JSON.stringify(obj.next()));
+        console.log('Obj.foo:', JSON.stringify(obj.next()));
     }
 }
 

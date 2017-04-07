@@ -128,14 +128,20 @@
         let Obj = {
             * foo() {
                 console.log('Hello foo');
-                yield;
+                yield 1;
                 console.log('Bye foo');
+                yield 2;
+                return "finish!";
             }
         };
 
+        let clz = new Clz();
+        console.log(`Clz bar:`, JSON.stringify(clz.bar().next()));
+
         let obj = Obj.foo();
-        console.log(obj.next());
-        console.log(obj.next());
+        console.log(`Obj.foo:`, JSON.stringify(obj.next()));
+        console.log(`Obj.foo:`, JSON.stringify(obj.next()));
+        console.log(`Obj.foo:`, JSON.stringify(obj.next()));
     }
 
 }

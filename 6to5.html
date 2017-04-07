@@ -89,6 +89,14 @@
                             <a class="dropdown-header h6" href="#symbol-type">Symbol Type</a>
                             <a class="dropdown-item" href="#symbol-type-01">Symbol Type</a>
                             <a class="dropdown-item" href="#global-symbols">Global Symbols</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-header h6" href="#generators">Generators</a>
+                            <a class="dropdown-item" href="#generator-function-iterator-protocol">Generator Function, Iterator Protocol</a>
+                            <a class="dropdown-item" href="#generator-function-direct-use">Generator Function, Direct Use</a>
+                            <a class="dropdown-item" href="#generator-matching">Generator Matching</a>
+                            <a class="dropdown-item" href="#generator-control-flow">Generator Control-Flow
+</a>
+                            <a class="dropdown-item" href="#generator-methods">Generator Methods</a>
                         </div>
                     </li>
                 </ul>
@@ -1567,6 +1575,274 @@ Value Object.keys(obj): []
 Value Object.getOwnPropertyNames(obj): []
 Value Object.getOwnPropertySymbols(obj): [Symbol(app.foo), Symbol(app.bar)]
 Value obj[foo]: foo</code></pre>
+                    </div>
+                </div>
+            </section>
+        </article>
+        <br/>
+        <!-- Generators -->
+        <article id="generators">
+            <div class="row">
+                <div class="col">
+                    <h2>Generators</h2>
+                    <br/>
+                </div>
+            </div>
+            <!-- Generator Function, Iterator Protocol-->
+            <section id="generator-function-iterator-protocol">
+                <div class="row">
+                    <div class="col">
+                        <h4>Generator Function, Iterator Protocol</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Support for generators, a special case of Iterators containing a generator function, where the control flow can be paused and resumed, in order to produce sequence of values (either finite or infinite).</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">let fibonacci = {
+  *[Symbol.iterator]() {
+    let pre = 0,
+      cur = 1;
+    for (;;) {
+      [pre, cur] = [cur, pre + cur];
+      yield cur;
+    }
+  }
+}
+
+for (let n of fibonacci) {
+  if (n > 1000)
+    break;
+  console.log(`Current value fibonacci:`, n);
+}</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">Current value fibonacci: 1
+Current value fibonacci: 2
+Current value fibonacci: 3
+Current value fibonacci: 5
+Current value fibonacci: 8
+Current value fibonacci: 13
+Current value fibonacci: 21
+Current value fibonacci: 34
+Current value fibonacci: 55
+Current value fibonacci: 89
+Current value fibonacci: 144
+Current value fibonacci: 233
+Current value fibonacci: 377
+Current value fibonacci: 610
+Current value fibonacci: 987</code></pre>
+                    </div>
+                </div>
+            </section>
+            <br/>
+            <!-- Generator Function, Direct Use-->
+            <section id="generator-function-direct-use">
+                <div class="row">
+                    <div class="col">
+                        <h4>Generator Function, Direct Use</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Support for generator functions, a special variant of functions where the control flow can be paused and resumed, in order to produce sequence of values (either finite or infinite).</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">function* range(start, end, step) {
+  while (start < end) {
+    yield start;
+    start += step;
+  }
+}
+
+for (let i of range(0, 10, 2)) {
+  console.log(`Current value range:`, i);
+}</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">Current value range: 0
+Current value range: 2
+Current value range: 4
+Current value range: 6
+Current value range: 8</code></pre>
+                    </div>
+                </div>
+            </section>
+            <br/>
+            <!-- Generator Matching-->
+            <section id="generator-matching">
+                <div class="row">
+                    <div class="col">
+                        <h4>Generator Matching</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Support for generator functions, i.e., functions where the control flow can be paused and resumed, in order to produce and spread sequence of values (either finite or infinite).</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">let fibonacci = function*(numbers) {
+  let pre = 0,
+    cur = 1;
+  while (numbers-- > 0) {
+    [pre, cur] = [cur, pre + cur];
+    yield cur;
+  }
+};
+
+for (let n of fibonacci(10)) {
+  console.log(`Current value fibonacci:`, n);
+}
+
+let numbers = [...fibonacci(10)];
+console.log(`Value numbers:`, JSON.stringify(numbers));
+let [n1, n2, n3, ...others] = fibonacci(10);
+console.log(`Values n1, n2, n3, others:`, n1, n2, n3, others);</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">Current value fibonacci: 1
+Current value fibonacci: 2
+Current value fibonacci: 3
+Current value fibonacci: 5
+Current value fibonacci: 8
+Current value fibonacci: 13
+Current value fibonacci: 21
+Current value fibonacci: 34
+Current value fibonacci: 55
+Current value fibonacci: 89
+Value numbers: [1,2,3,5,8,13,21,34,55,89]
+Values n1, n2, n3, others: 1 2 3 [5, 8, 13, 21, 34, 55, 89]</code></pre>
+                    </div>
+                </div>
+            </section>
+            <br/>
+            <!-- Generator Control-Flow-->
+            <section id="generator-control-flow">
+                <div class="row">
+                    <div class="col">
+                        <h4>Generator Control-Flow</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Support for generators, a special case of Iterators where the control flow can be paused and resumed, in order to support asynchronous programming in the style of "co-routines" in combination with Promises (see below). [Notice: the generic async function usually is provided by a reusable library and given here just for better understanding. See <a href="https://github.com/tj/co" target="_blank">co</a> or <a href="https://github.com/petkaantonov/bluebird/blob/master/API.md#promisecoroutinegeneratorfunction-generatorfunction---function" target="_blank">Bluebird</a>'s coroutine in practice.]</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">//  generic asynchronous control-flow driver
+function async(proc, ...params) {
+  var iterator = proc(...params);
+  return new Promise((resolve, reject) => {
+    let loop = (value) => {
+      let result;
+      try {
+        result = iterator.next(value);
+      } catch (err) {
+        reject(err);
+      }
+      if (result.done)
+        resolve(result.value);
+      else if (typeof result.value === 'object' &&
+        typeof result.value.then === 'function')
+        result.value.then((value) => {
+          loop(value);
+        }, (err) => {
+          reject(err);
+        });
+      else
+        loop(result.value);
+    }
+    loop();
+  });
+}
+
+//  application-specific asynchronous builder
+function makeAsync(text, after) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => resolve(text), after);
+  });
+}
+
+//  application-specific asynchronous procedure
+async(function*(greeting) {
+  let foo = yield makeAsync('foo', 300)
+  let bar = yield makeAsync('bar', 600)
+  let baz = yield makeAsync('baz', 100)
+  return `${greeting} ${foo} ${bar} ${baz}`
+}, 'Hello').then((msg) => {
+  console.log(`Result:`, msg);
+})</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">Result: Hello foo bar baz</code></pre>
+                    </div>
+                </div>
+            </section>
+            <br/>
+            <!-- Generator Methods-->
+            <section id="generator-methods">
+                <div class="row">
+                    <div class="col">
+                        <h4>Generator Methods</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Support for generator methods, i.e., methods in classes and on objects, based on generator functions.
+</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">class Clz {
+  * bar() {
+    console.log('Hello bar');
+  }
+};
+let Obj = {
+  * foo() {
+    console.log('Hello foo');
+    yield 1;
+    console.log('Bye foo');
+    yield 2;
+    return "finish!";
+  }
+};
+
+let clz = new Clz();
+console.log(`Clz bar:`, JSON.stringify(clz.bar().next()));
+
+let obj = Obj.foo();
+console.log(`Obj.foo:`, JSON.stringify(obj.next()));
+console.log(`Obj.foo:`, JSON.stringify(obj.next()));
+console.log(`Obj.foo:`, JSON.stringify(obj.next()));</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">Hello bar
+Clz bar: {"done":true}
+Hello foo
+Obj.foo: {"value":1,"done":false}
+Bye foo
+Obj.foo: {"value":2,"done":false}
+Obj.foo: {"value":"finish!","done":true}</code></pre>
                     </div>
                 </div>
             </section>
