@@ -83,8 +83,8 @@
                     }
                     if (result.done)
                         resolve(result.value);
-                    else if (typeof result.value === "object" &&
-                        typeof result.value.then === "function")
+                    else if (typeof result.value === 'object' &&
+                        typeof result.value.then === 'function')
                         result.value.then((value) => {
                             loop(value);
                         }, (err) => {
@@ -106,12 +106,12 @@
 
         //  application-specific asynchronous procedure
         async(function*(greeting) {
-            let foo = yield makeAsync("foo", 300)
-            let bar = yield makeAsync("bar", 600)
-            let baz = yield makeAsync("baz", 100)
+            let foo = yield makeAsync('foo', 300)
+            let bar = yield makeAsync('bar', 600)
+            let baz = yield makeAsync('baz', 100)
             return `${greeting} ${foo} ${bar} ${baz}`
-        }, "Hello").then((msg) => {
-            console.log("RESULT:", msg);
+        }, 'Hello').then((msg) => {
+            console.log(`Result example Generator Control-Flow:`, msg);
         })
     }
 
@@ -127,13 +127,15 @@
         };
         let Obj = {
             * foo() {
-                console.log('hello Obj');
+                console.log('Hello foo');
+                yield;
+                console.log('Bye foo');
             }
         };
 
-        console.log(Obj);
-        let asd = Obj.foo();
-        console.log(asd.next());
+        let obj = Obj.foo();
+        console.log(obj.next());
+        console.log(obj.next());
     }
 
 }

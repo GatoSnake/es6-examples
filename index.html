@@ -103,6 +103,14 @@
                             <a class="dropdown-header h6" href="#symbol-type">Symbol Type</a>
                             <a class="dropdown-item" href="#symbol-type-01">Symbol Type</a>
                             <a class="dropdown-item" href="#global-symbols">Global Symbols</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-header h6" href="#generators">Generators</a>
+                            <a class="dropdown-item" href="#generator-function-iterator-protocol">Generator Function, Iterator Protocol</a>
+                            <a class="dropdown-item" href="#generator-function-direct-use">Generator Function, Direct Use</a>
+                            <a class="dropdown-item" href="#generator-matching">Generator Matching</a>
+                            <a class="dropdown-item" href="#generator-control-flow">Generator Control-Flow
+</a>
+                            <a class="dropdown-item" href="#generator-methods">Generator Methods</a>
                         </div>
                     </li>
                 </ul>
@@ -1581,6 +1589,105 @@ Value Object.keys(obj): []
 Value Object.getOwnPropertyNames(obj): []
 Value Object.getOwnPropertySymbols(obj): [Symbol(app.foo), Symbol(app.bar)]
 Value obj[foo]: foo</code></pre>
+                    </div>
+                </div>
+            </section>
+        </article>
+        <br/>
+        <!-- Generators -->
+        <article id="generators">
+            <div class="row">
+                <div class="col">
+                    <h2>Generators</h2>
+                    <br/>
+                </div>
+            </div>
+            <!-- Generator Function, Iterator Protocol-->
+            <section id="generator-function-iterator-protocol">
+                <div class="row">
+                    <div class="col">
+                        <h4>Generator Function, Iterator Protocol</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Support for generators, a special case of Iterators containing a generator function, where the control flow can be paused and resumed, in order to produce sequence of values (either finite or infinite).</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">let fibonacci = {
+  *[Symbol.iterator]() {
+    let pre = 0,
+      cur = 1;
+    for (;;) {
+      [pre, cur] = [cur, pre + cur];
+      yield cur;
+    }
+  }
+}
+
+for (let n of fibonacci) {
+  if (n > 1000)
+    break;
+  console.log(`Current value fibonacci:`, n);
+}</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">Current value fibonacci: 1
+Current value fibonacci: 2
+Current value fibonacci: 3
+Current value fibonacci: 5
+Current value fibonacci: 8
+Current value fibonacci: 13
+Current value fibonacci: 21
+Current value fibonacci: 34
+Current value fibonacci: 55
+Current value fibonacci: 89
+Current value fibonacci: 144
+Current value fibonacci: 233
+Current value fibonacci: 377
+Current value fibonacci: 610
+Current value fibonacci: 987</code></pre>
+                    </div>
+                </div>
+            </section>
+            <br/>
+            <!-- Generator Function, Direct Use-->
+            <section id="generator-function-direct-use">
+                <div class="row">
+                    <div class="col">
+                        <h4>Generator Function, Direct Use</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Support for generator functions, a special variant of functions where the control flow can be paused and resumed, in order to produce sequence of values (either finite or infinite).</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">function* range(start, end, step) {
+  while (start < end) {
+    yield start;
+    start += step;
+  }
+}
+
+for (let i of range(0, 10, 2)) {
+  console.log(`Current value range:`, i);
+}</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">Current value range: 0
+Current value range: 2
+Current value range: 4
+Current value range: 6
+Current value range: 8</code></pre>
                     </div>
                 </div>
             </section>
