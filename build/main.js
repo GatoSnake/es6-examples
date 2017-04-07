@@ -7803,7 +7803,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 {
-    console.log('\n        ************** Generators examples **************\n\n          === Generator Function, Iterator Protocol ===\n        ');
+    console.log('\n        ************** Generators examples **************\n\n          === Generator Function, Iterator Protocol ===\n    ');
 
     {
         var fibonacci = _defineProperty({}, Symbol.iterator, regeneratorRuntime.mark(function _callee() {
@@ -8039,12 +8039,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     switch (_context4.prev = _context4.next) {
                         case 0:
                             _context4.next = 2;
-                            return makeAsync('foo', 300);
+                            return makeAsync('foo', 100);
 
                         case 2:
                             foo = _context4.sent;
                             _context4.next = 5;
-                            return makeAsync('bar', 600);
+                            return makeAsync('bar', 100);
 
                         case 5:
                             bar = _context4.sent;
@@ -8244,8 +8244,138 @@ require('./classes');
 require('./symbol_type');
 require('./iterators');
 require('./generators');
+require('./map_set_and_weakmap_weakset');
 
-},{"./arrow_functions":298,"./classes":299,"./constants":300,"./destructuring_assignment":301,"./enhanced_object_properties":302,"./enhanced_regular_expression":303,"./extended_literals":304,"./extended_parameter_handling":305,"./generators":306,"./iterators":307,"./modules":311,"./modules2":312,"./scoping":313,"./symbol_type":314,"./template_literals":315,"babel-polyfill":1}],311:[function(require,module,exports){
+},{"./arrow_functions":298,"./classes":299,"./constants":300,"./destructuring_assignment":301,"./enhanced_object_properties":302,"./enhanced_regular_expression":303,"./extended_literals":304,"./extended_parameter_handling":305,"./generators":306,"./iterators":307,"./map_set_and_weakmap_weakset":311,"./modules":312,"./modules2":313,"./scoping":314,"./symbol_type":315,"./template_literals":316,"babel-polyfill":1}],311:[function(require,module,exports){
+'use strict';
+
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+{
+    console.log('\n        ************** Map/Set & WeakMap/WeakSet examples **************\n\n                           === Set Data-Structure ===\n    ');
+
+    var s = new Set();
+    s.add('hello').add('goodbye').add('hello');
+    console.log('s.size === 2:', s.size === 2);
+    console.log('s.has("hello"):', s.has('hello') === true);
+    var _iteratorNormalCompletion = true;
+    var _didIteratorError = false;
+    var _iteratorError = undefined;
+
+    try {
+        for (var _iterator = s.values()[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+            var key = _step.value;
+
+            console.log('Data s:', key);
+        }
+    } catch (err) {
+        _didIteratorError = true;
+        _iteratorError = err;
+    } finally {
+        try {
+            if (!_iteratorNormalCompletion && _iterator.return) {
+                _iterator.return();
+            }
+        } finally {
+            if (_didIteratorError) {
+                throw _iteratorError;
+            }
+        }
+    }
+
+    console.log('\n                           === Map Data-Structure ===\n    ');
+
+    var m = new Map();
+    m.set('hello', 42);
+    m.set(s, 34);
+    console.log('m.get(s) === 34:', m.get(s) === 34);
+    console.log('m.size === 2:', m.size === 2);
+    var _iteratorNormalCompletion2 = true;
+    var _didIteratorError2 = false;
+    var _iteratorError2 = undefined;
+
+    try {
+        for (var _iterator2 = m.entries()[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+            var _step2$value = _slicedToArray(_step2.value, 2),
+                _key = _step2$value[0],
+                val = _step2$value[1];
+
+            console.log('key:', _key, ' - val:', val);
+        }
+    } catch (err) {
+        _didIteratorError2 = true;
+        _iteratorError2 = err;
+    } finally {
+        try {
+            if (!_iteratorNormalCompletion2 && _iterator2.return) {
+                _iterator2.return();
+            }
+        } finally {
+            if (_didIteratorError2) {
+                throw _iteratorError2;
+            }
+        }
+    }
+
+    console.log('\n                       === Weak-Link Data-Structures ===\n    ');
+
+    var isMarked = new WeakSet();
+    var attachedData = new WeakMap();
+
+    var Node = function () {
+        function Node(id) {
+            _classCallCheck(this, Node);
+
+            this.id = id;
+        }
+
+        _createClass(Node, [{
+            key: 'mark',
+            value: function mark() {
+                isMarked.add(this);
+            }
+        }, {
+            key: 'unmark',
+            value: function unmark() {
+                isMarked.delete(this);
+            }
+        }, {
+            key: 'marked',
+            value: function marked() {
+                return isMarked.has(this);
+            }
+        }, {
+            key: 'data',
+            set: function set(data) {
+                attachedData.set(this, data);
+            },
+            get: function get() {
+                return attachedData.get(this);
+            }
+        }]);
+
+        return Node;
+    }();
+
+    var foo = new Node('foo');
+
+    console.log('Value foo:', JSON.stringify(foo));
+    foo.mark();
+    foo.data = "bar";
+    console.log('foo.data === "data":', foo.data === 'bar');
+    console.log('Value foo:', JSON.stringify(foo));
+    console.log('foo isMarked:', isMarked.has(foo));
+    console.log('attached data foo:', attachedData.has(foo));
+    foo = null; /* remove only reference to foo */
+    console.log('attached data foo:', attachedData.has(foo));
+    console.log('foo isMarked:', isMarked.has(foo));
+}
+
+},{}],312:[function(require,module,exports){
 "use strict";
 
 var _math = require("./lib/math");
@@ -8261,7 +8391,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
     console.log("2π = ", (0, _math.sum)(_math.pi, _math.pi));
 }
 
-},{"./lib/math":308}],312:[function(require,module,exports){
+},{"./lib/math":308}],313:[function(require,module,exports){
 'use strict';
 
 var _mathplusplus = require('./lib/mathplusplus');
@@ -8277,7 +8407,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     console.log('e^{\u03C0}:', (0, _mathplusplus2.default)(_mathplusplus.pi));
 }
 
-},{"./lib/mathplusplus":309}],313:[function(require,module,exports){
+},{"./lib/mathplusplus":309}],314:[function(require,module,exports){
 'use strict';
 
 {
@@ -8337,7 +8467,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     }
 }
 
-},{}],314:[function(require,module,exports){
+},{}],315:[function(require,module,exports){
 "use strict";
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -8386,7 +8516,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     }
 }
 
-},{}],315:[function(require,module,exports){
+},{}],316:[function(require,module,exports){
 "use strict";
 
 var _templateObject = _taggedTemplateLiteral(["http://example.com/foo?bar=", "&quux=", ""], ["http://example.com/foo?bar=", "&quux=", ""]),

@@ -3,7 +3,7 @@
         ************** Generators examples **************
 
           === Generator Function, Iterator Protocol ===
-        `);
+    `);
 
     {
         let fibonacci = {
@@ -106,8 +106,8 @@
 
         //  application-specific asynchronous procedure
         async(function*(greeting) {
-            let foo = yield makeAsync('foo', 300)
-            let bar = yield makeAsync('bar', 600)
+            let foo = yield makeAsync('foo', 100)
+            let bar = yield makeAsync('bar', 100)
             let baz = yield makeAsync('baz', 100)
             return `${greeting} ${foo} ${bar} ${baz}`
         }, 'Hello').then((msg) => {

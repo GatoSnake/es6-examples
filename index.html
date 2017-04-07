@@ -26,6 +26,9 @@
     <script src="src/symbol_type.js"></script>
     <script src="src/iterators.js"></script>
     <script src="src/generators.js"></script>
+    <script src="src/map_set_and_weakmap_weakset.js"></script>
+
+    </script>
 </head>
 
 <body>
@@ -114,6 +117,11 @@
                             <a class="dropdown-item" href="#generator-matching">Generator Matching</a>
                             <a class="dropdown-item" href="#generator-control-flow">Generator Control-Flow</a>
                             <a class="dropdown-item" href="#generator-methods">Generator Methods</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-header h6" href="#map-set-and-weakmap-weakset">Map/Set & WeakMap/WeakSet</a>
+                            <a class="dropdown-item" href="#set-data-structure">Set Data-Structure</a>
+                            <a class="dropdown-item" href="#map-data-structure">Map Data-Structure</a>
+                            <a class="dropdown-item" href="#weak-link-data-structures">Weak-Link Data-Structures</a>
                         </div>
                     </li>
                 </ul>
@@ -1930,7 +1938,147 @@ Obj.foo: {"value":"finish!","done":true}</code></pre>
                     </div>
                 </div>
             </section>
+        </article>
+        <br/>
+        <!-- Map/Set & WeakMap/WeakSet -->
+        <article id="map-set-and-weakmap-weakset">
+            <div class="row">
+                <div class="col">
+                    <h2>Map/Set & WeakMap/WeakSet</h2>
+                    <br/>
+                </div>
+            </div>
+            <!-- Set Data-Structure-->
+            <section id="set-data-structure">
+                <div class="row">
+                    <div class="col">
+                        <h4>Set Data-Structure</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Cleaner data-structure for common algorithms based on sets.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">let s = new Set();
+s.add('hello').add('goodbye').add('hello');
+console.log(`s.size === 2:`, s.size === 2);
+console.log(`s.has("hello"):`, s.has('hello') === true);
+for (let key of s.values()) {
+  console.log(`Data s:`, key);
+}</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">s.size === 2: true
+s.has("hello"): true
+Data s: hello
+Data s: goodbye</code></pre>
+                    </div>
+                </div>
+            </section>
             <br/>
+            <!-- Map Data-Structure-->
+            <section id="map-data-structure">
+                <div class="row">
+                    <div class="col">
+                        <h4>Map Data-Structure</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Cleaner data-structure for common algorithms based on maps.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">let m = new Map();
+m.set('hello', 42);
+m.set(s, 34);
+console.log(`m.get(s) === 34:`, m.get(s) === 34);
+console.log(`m.size === 2:`, m.size === 2);
+for (let [key, val] of m.entries()) {
+  console.log(`key:`, key, ` - val:`, val);
+}</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">m.get(s) === 34: true
+m.size === 2: true
+key: hello  - val: 42
+key: Set(2) {"hello", "goodbye"}  - val: 34</code></pre>
+                    </div>
+                </div>
+            </section>
+            <br/>
+            <!-- Weak-Link Data-Structures-->
+            <section id="weak-link-data-structures">
+                <div class="row">
+                    <div class="col">
+                        <h4>Weak-Link Data-Structures</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Memory-leak-free Object-key’d side-by-side data-structures.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">let isMarked = new WeakSet();
+let attachedData = new WeakMap();
+
+class Node {
+  constructor(id) {
+    this.id = id;
+  }
+  mark() {
+    isMarked.add(this);
+  }
+  unmark() {
+    isMarked.delete(this);
+  }
+  marked() {
+    return isMarked.has(this);
+  }
+  set data(data) {
+    attachedData.set(this, data);
+  }
+  get data() {
+    return attachedData.get(this);
+  }
+}
+
+let foo = new Node('foo');
+
+console.log(`Value foo:`, JSON.stringify(foo));
+foo.mark();
+foo.data = "bar";
+console.log(`foo.data === "data":`, foo.data === 'bar');
+console.log(`Value foo:`, JSON.stringify(foo));
+console.log(`foo isMarked:`,isMarked.has(foo));
+console.log(`attached data foo:`, attachedData.has(foo));
+foo = null /* remove only reference to foo */
+console.log(`attached data foo:`, attachedData.has(foo));
+console.log(`foo isMarked:`, isMarked.has(foo));</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">Value foo: {"id":"foo"}
+foo.data === "data": true
+Value foo: {"id":"foo"}
+foo isMarked: true
+attached data foo: true
+attached data foo: false
+foo isMarked: false</code></pre>
+                    </div>
+                </div>
+            </section>
         </article>
         <br/>
 

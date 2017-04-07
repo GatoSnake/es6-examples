@@ -71,11 +71,11 @@ To run the examples you need to have npm installed.
 	* Generator Matching
 	* Generator Control-Flow
 	* Generator Methods
-* ********************************** IN PROGRESS **********************************
 * Map/Set & WeakMap/WeakSet
 	* Set Data-Structure
 	* Map Data-Structure
 	* Weak-Link Data-Structures
+* ********************************** IN PROGRESS **********************************
 * Typed Arrays
 	* Typed Arrays
 * New Built-In Methods
