@@ -63,7 +63,6 @@ To run the examples you need to have npm installed.
 * Symbol Type
 	* Symbol Type
 	* Global Symbols
-* ********************************** IN PROGRESS **********************************
 * Iterators  
 	* Iterator & For-Of Operator
 * Generators
@@ -72,6 +71,7 @@ To run the examples you need to have npm installed.
 	* Generator Matching
 	* Generator Control-Flow
 	* Generator Methods
+* ********************************** IN PROGRESS **********************************
 * Map/Set & WeakMap/WeakSet
 	* Set Data-Structure
 	* Map Data-Structure
