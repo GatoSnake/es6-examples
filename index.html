@@ -147,6 +147,12 @@
                             <a class="dropdown-header h6" href="#meta-programming">Meta-Programming</a>
                             <a class="dropdown-item" href="#proxying">Proxying</a>
                             <a class="dropdown-item" href="#reflection">Reflection</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-header h6" href="#internationalization-and-localization">Internationalization & Localization</a>
+                            <a class="dropdown-item" href="#collation">Collation</a>
+                            <a class="dropdown-item" href="#number-formatting">Number Formatting</a>
+                            <a class="dropdown-item" href="#currency-formatting">Currency Formatting</a>
+                            <a class="dropdown-item" href="#date-time-formatting">Date/Time Formatting</a>
                         </div>
                     </li>
                 </ul>
@@ -2620,6 +2626,146 @@ console.log(`Reflect.ownKeys(obj):`, Reflect.ownKeys(obj));</code></pre>
                     <div class="col-12 col-md-6">
                         <h6>Result</h6>
                         <pre><code class="language-javascript">Reflect.ownKeys(obj): ["a", "b", Symbol(c)]</code></pre>
+                    </div>
+                </div>
+            </section>
+        </article>
+        <br/>
+        <!-- Internationalization & Localization -->
+        <article id="internationalization-and-localization">
+            <div class="row">
+                <div class="col">
+                    <h2>Internationalization & Localization</h2>
+                    <br/>
+                </div>
+            </div>
+            <!-- Collation-->
+            <section id="collation">
+                <div class="row">
+                    <div class="col">
+                        <h4>Collation</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Sorting a set of strings and searching within a set of strings. Collation is parameterized by locale and aware of Unicode.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">// in German,  'ä' sorts with 'a'
+// in Swedish, 'ä' sorts after 'z'
+let list = ['ä', 'a', 'z'];
+let l10nDE = new Intl.Collator('de');
+let l10nSV = new Intl.Collator('sv');
+console.log(`l10nDE.compare('ä', 'z'):`, l10nDE.compare('ä', 'z'));
+console.log(`l10nSV.compare('ä', 'z'):`, l10nSV.compare('ä', 'z'));
+console.log(`list.sort(l10nDE.compare):`, list.sort(l10nDE.compare));
+console.log(`list.sort(l10nSV.compare):`, list.sort(l10nSV.compare));</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">l10nDE.compare('ä', 'z'): -1
+l10nSV.compare('ä', 'z'): 1
+list.sort(l10nDE.compare): ["a", "ä", "z"]
+list.sort(l10nSV.compare): ["a", "z", "ä"]</code></pre>
+                    </div>
+                </div>
+            </section>
+            <br/>
+            <!-- Number Formatting-->
+            <section id="number-formatting">
+                <div class="row">
+                    <div class="col">
+                        <h4>Number Formatting</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Format numbers with digit grouping and localized separators.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">let l10nEN = new Intl.NumberFormat('en-US');
+let l10nDE = new Intl.NumberFormat('de-DE');
+console.log(`Compare number format EN:`, l10nEN.format(1234567.89) === '1,234,567.89');
+console.log(`Compare number format DE:`, l10nDE.format(1234567.89) === '1.234.567,89');</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">Compare number format EN: true
+Compare number format DE: true</code></pre>
+                    </div>
+                </div>
+            </section>
+            <br/>
+            <!-- Currency Formatting-->
+            <section id="currency-formatting">
+                <div class="row">
+                    <div class="col">
+                        <h4>Currency Formatting</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Format numbers with digit grouping, localized separators and attached currency symbol.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">let l10nUSD = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD'
+});
+let l10nGBP = new Intl.NumberFormat('en-GB', {
+  style: 'currency',
+  currency: 'GBP'
+});
+let l10nEUR = new Intl.NumberFormat('de-DE', {
+  style: 'currency',
+  currency: 'EUR'
+});
+console.log(`Compare currency format USD:`, l10nUSD.format(100200300.40) === '$100,200,300.40');
+console.log(`Compare currency format GBP:`, l10nGBP.format(100200300.40) === '£100,200,300.40');
+console.log(`Compare currency format EUR:`, l10nEUR.format(100200300.40) === '100.200.300,40 €');</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">Compare currency format USD: true
+Compare currency format GBP: true
+Compare currency format EUR: true</code></pre>
+                    </div>
+                </div>
+            </section>
+            <br/>
+            <!-- Date/Time Formatting-->
+            <section id="date-time-formatting">
+                <div class="row">
+                    <div class="col">
+                        <h4>Date/Time Formatting</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Format date/time with localized ordering and separators.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">let l10nEN = new Intl.DateTimeFormat('en-US');
+let l10nDE = new Intl.DateTimeFormat('de-DE');
+console.log(`Compare date format EN:`, l10nEN.format(new Date('2017-01-02')) === '1/2/2017');
+console.log(`Compare date format DE:`, l10nDE.format(new Date('2017-01-02')) === '2.1.2017');</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">Compare date format EN: true
+Compare date format DE: true</code></pre>
                     </div>
                 </div>
             </section>
