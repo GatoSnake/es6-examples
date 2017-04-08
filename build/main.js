@@ -8437,16 +8437,19 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     console.log('\n                      === Array Element Finding ===\n    ');
 
     {
-        console.log('Find value x > 3:', [1, 3, 4, 2].find(function (x) {
+        var find = [1, 3, 4, 2].find(function (x) {
             return x > 3;
-        }));
+        });
+        console.log('Find value x > 3:', find);
     }
 
     console.log('\n                        === String Repeating ===\n    ');
 
     {
-        console.log('\' \'.repeat(4 * 2):', ' '.repeat(4 * 2));
-        console.log('\'foo\'.repeat(3):', 'foo'.repeat(3));
+        var repeat1 = ' '.repeat(4 * 2);
+        var repeat2 = 'foo'.repeat(3);
+        console.log('\' \'.repeat(4 * 2):', repeat1);
+        console.log('\'foo\'.repeat(3):', repeat2);
     }
 
     console.log('\n                        === String Searching ===\n    ');
