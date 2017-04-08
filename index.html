@@ -127,6 +127,17 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-header h6" href="#typed-arrays">Typed Arrays</a>
                             <a class="dropdown-item" href="#typed-arrays-01">Typed Arrays</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-header h6" href="#new-built-in-methods">New Built-In Methods</a>
+                            <a class="dropdown-item" href="#object-property-assignment">Object Property Assignment</a>
+                            <a class="dropdown-item" href="#array-element-finding">Array Element Finding</a>
+                            <a class="dropdown-item" href="#string-repeating">String Repeating</a>
+                            <a class="dropdown-item" href="#string-searching">String Searching</a>
+                            <a class="dropdown-item" href="#number-type-checking">Number Type Checking</a>
+                            <a class="dropdown-item" href="#number-safety-checking">Number Safety Checking</a>
+                            <a class="dropdown-item" href="#number-comparison">Number Comparison</a>
+                            <a class="dropdown-item" href="#number-truncation">Number Truncation</a>
+                            <a class="dropdown-item" href="#number-sign-determination">Number Sign Determination</a>
                         </div>
                     </li>
                 </ul>
@@ -2158,6 +2169,57 @@ console.log(`Value example.amountDue:`, example.amountDue);</code></pre>
                         <pre><code class="language-javascript">Value example.id: 7
 Value example.username: 0
 Value example.amountDue: 42</code></pre>
+                    </div>
+                </div>
+            </section>
+        </article>
+        <br/>
+        <!-- New Built-In Methods -->
+        <article id="new-built-in-methods">
+            <div class="row">
+                <div class="col">
+                    <h2>New Built-In Methods</h2>
+                    <br/>
+                </div>
+            </div>
+            <!-- Object Property Assignment-->
+            <section id="object-property-assignment">
+                <div class="row">
+                    <div class="col">
+                        <h4>Object Property Assignment</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>New function for assigning enumerable properties of one or more source objects onto a destination object.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">var dst = {
+  quux: 0
+};
+var src1 = {
+  foo: 1,
+  bar: 2
+};
+var src2 = {
+  foo: 3,
+  baz: 4
+};
+Object.assign(dst, src1, src2);
+console.log(`Value dst.quux:`, dst.quux);
+console.log(`Value dst.foo:`, dst.foo);
+console.log(`Value dst.bar:`, dst.bar);
+console.log(`Value dst.baz:`, dst.baz);</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">Value dst.quux: 0
+Value dst.foo: 3
+Value dst.bar: 2
+Value dst.baz: 4</code></pre>
                     </div>
                 </div>
             </section>
