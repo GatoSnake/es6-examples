@@ -29,8 +29,7 @@
     <script src="src/map_set_and_weakmap_weakset.js"></script>
     <script src="src/typed_arrays.js"></script>
     <script src="src/new_built_in_methods.js"></script>
-
-    </script>
+    <script src="src/promises.js"></script>
 </head>
 
 <body>
@@ -138,6 +137,10 @@
                             <a class="dropdown-item" href="#number-comparison">Number Comparison</a>
                             <a class="dropdown-item" href="#number-truncation">Number Truncation</a>
                             <a class="dropdown-item" href="#number-sign-determination">Number Sign Determination</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-header h6" href="#promises">Promises</a>
+                            <a class="dropdown-item" href="#promise-usage">Promise Usage</a>
+                            <a class="dropdown-item" href="#promise-combination">Promise Combination</a>
                         </div>
                     </li>
                 </ul>
@@ -2455,6 +2458,88 @@ Math.sign(0): 0
 Math.sign(-0): -0
 Math.sign(-7): -1
 Math.sign(NaN): NaN</code></pre>
+                    </div>
+                </div>
+            </section>
+        </article>
+        <br/>
+        <!-- Promises -->
+        <article id="promises">
+            <div class="row">
+                <div class="col">
+                    <h2>Promises</h2>
+                    <br/>
+                </div>
+            </div>
+            <!-- Promise Usage-->
+            <section id="promise-usage">
+                <div class="row">
+                    <div class="col">
+                        <h4>Promise Usage</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>First class representation of a value that may be made asynchronously and be available in the future.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">function msgAfterTimeout(msg, who, timeout) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => resolve(`${msg} Hello ${who}!`), timeout);
+  });
+}
+
+msgAfterTimeout('', 'Foo', 100).then((msg) =>
+  msgAfterTimeout(msg, 'Bar', 200)
+).then((msg) => {
+  console.log(`Response promise after 300ms:`, msg);
+});</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">Response promise after 300ms:  Hello Foo! Hello Bar!</code></pre>
+                    </div>
+                </div>
+            </section>
+            <br/>
+            <!-- Promise Combination-->
+            <section id="promise-combination">
+                <div class="row">
+                    <div class="col">
+                        <h4>Promise Combination</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Combine one or more promises into new promises without having to take care of ordering of the underlying asynchronous operations yourself.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">let fetchPromised = (name, timeout) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => resolve(`Hi ${name}`), timeout);
+  });
+}
+
+Promise.all([
+  fetchPromised('Foo', 1000),
+  fetchPromised('Bar', 500),
+  fetchPromised('Baz', 200)
+]).then((data) => {
+  let [foo, bar, baz] = data;
+  console.log(`Response all promises: foo=${foo} bar=${bar} baz=${baz}`);
+}, (err) => {
+  console.log(`Error: ${err}`);
+});</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">Response all promises: foo=Hi Foo bar=Hi Bar baz=Hi Baz</code></pre>
                     </div>
                 </div>
             </section>

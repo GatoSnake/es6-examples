@@ -8247,8 +8247,9 @@ require('./generators');
 require('./map_set_and_weakmap_weakset');
 require('./typed_arrays');
 require('./new_built_in_methods');
+require('./promises');
 
-},{"./arrow_functions":298,"./classes":299,"./constants":300,"./destructuring_assignment":301,"./enhanced_object_properties":302,"./enhanced_regular_expression":303,"./extended_literals":304,"./extended_parameter_handling":305,"./generators":306,"./iterators":307,"./map_set_and_weakmap_weakset":311,"./modules":312,"./modules2":313,"./new_built_in_methods":314,"./scoping":315,"./symbol_type":316,"./template_literals":317,"./typed_arrays":318,"babel-polyfill":1}],311:[function(require,module,exports){
+},{"./arrow_functions":298,"./classes":299,"./constants":300,"./destructuring_assignment":301,"./enhanced_object_properties":302,"./enhanced_regular_expression":303,"./extended_literals":304,"./extended_parameter_handling":305,"./generators":306,"./iterators":307,"./map_set_and_weakmap_weakset":311,"./modules":312,"./modules2":313,"./new_built_in_methods":314,"./promises":315,"./scoping":316,"./symbol_type":317,"./template_literals":318,"./typed_arrays":319,"babel-polyfill":1}],311:[function(require,module,exports){
 'use strict';
 
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
@@ -8513,6 +8514,54 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 },{}],315:[function(require,module,exports){
 'use strict';
 
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
+{
+    console.log('\n        ************** Promises examples **************\n\n                     === Promise Usage ===\n    ');
+
+    {
+        var msgAfterTimeout = function msgAfterTimeout(msg, who, timeout) {
+            return new Promise(function (resolve, reject) {
+                setTimeout(function () {
+                    return resolve(msg + ' Hello ' + who + '!');
+                }, timeout);
+            });
+        };
+
+        msgAfterTimeout('', 'Foo', 100).then(function (msg) {
+            return msgAfterTimeout(msg, 'Bar', 200);
+        }).then(function (msg) {
+            console.log('Response promise after 300ms:', msg);
+        });
+    }
+
+    console.log('\n                  === Promise Combination ===\n    ');
+
+    {
+        var fetchPromised = function fetchPromised(name, timeout) {
+            return new Promise(function (resolve, reject) {
+                setTimeout(function () {
+                    return resolve('Hi ' + name);
+                }, timeout);
+            });
+        };
+
+        Promise.all([fetchPromised('Foo', 1000), fetchPromised('Bar', 500), fetchPromised('Baz', 200)]).then(function (data) {
+            var _data = _slicedToArray(data, 3),
+                foo = _data[0],
+                bar = _data[1],
+                baz = _data[2];
+
+            console.log('Response all promises: foo=' + foo + ' bar=' + bar + ' baz=' + baz);
+        }, function (err) {
+            console.log('Error: ' + err);
+        });
+    }
+}
+
+},{}],316:[function(require,module,exports){
+'use strict';
+
 {
     console.log('\n        ************** Scoping examples **************\n\n                === Block-Scoped Variables ===\n        ');
 
@@ -8570,7 +8619,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     }
 }
 
-},{}],316:[function(require,module,exports){
+},{}],317:[function(require,module,exports){
 "use strict";
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -8619,7 +8668,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     }
 }
 
-},{}],317:[function(require,module,exports){
+},{}],318:[function(require,module,exports){
 "use strict";
 
 var _templateObject = _taggedTemplateLiteral(["http://example.com/foo?bar=", "&quux=", ""], ["http://example.com/foo?bar=", "&quux=", ""]),
@@ -8670,7 +8719,7 @@ function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defi
     console.log("Compare String.war:", String.raw(_templateObject2, 42) === "foo\\n42bar");
 }
 
-},{}],318:[function(require,module,exports){
+},{}],319:[function(require,module,exports){
 "use strict";
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();

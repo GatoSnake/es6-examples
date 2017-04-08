@@ -75,7 +75,6 @@ To run the examples you need to have npm installed.
 	* Set Data-Structure
 	* Map Data-Structure
 	* Weak-Link Data-Structures
-* ********************************** IN PROGRESS **********************************
 * Typed Arrays
 	* Typed Arrays
 * New Built-In Methods
@@ -91,6 +90,7 @@ To run the examples you need to have npm installed.
 * Promises
 	* Promise Usage
 	* Promise Combination
+* ********************************** IN PROGRESS **********************************
 * Meta-Programming
 	* Proxying
 	* Reflection
