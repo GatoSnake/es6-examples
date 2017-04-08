@@ -8134,6 +8134,63 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 }
 
 },{}],307:[function(require,module,exports){
+'use strict';
+
+{
+    console.log('\n        ************** Internationalization & Localization examples **************\n\n                                    === Collation ===\n    ');
+
+    {
+        // in German,  'ä' sorts with 'a'
+        // in Swedish, 'ä' sorts after 'z'
+        var list = ['ä', 'a', 'z'];
+        var l10nDE = new Intl.Collator('de');
+        var l10nSV = new Intl.Collator('sv');
+        console.log('l10nDE.compare(\'\xE4\', \'z\'):', l10nDE.compare('ä', 'z'));
+        console.log('l10nSV.compare(\'\xE4\', \'z\'):', l10nSV.compare('ä', 'z'));
+        console.log('list.sort(l10nDE.compare):', list.sort(l10nDE.compare));
+        console.log('list.sort(l10nSV.compare):', list.sort(l10nSV.compare));
+    }
+
+    console.log('\n                                === Number Formatting ===\n    ');
+
+    {
+        var l10nEN = new Intl.NumberFormat('en-US');
+        var _l10nDE = new Intl.NumberFormat('de-DE');
+        console.log('Compare number format EN:', l10nEN.format(1234567.89) === '1,234,567.89');
+        console.log('Compare number format DE:', _l10nDE.format(1234567.89) === '1.234.567,89');
+    }
+
+    console.log('\n                               === Currency Formatting ===\n    ');
+
+    {
+        var l10nUSD = new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD'
+        });
+        var l10nGBP = new Intl.NumberFormat('en-GB', {
+            style: 'currency',
+            currency: 'GBP'
+        });
+        var l10nEUR = new Intl.NumberFormat('de-DE', {
+            style: 'currency',
+            currency: 'EUR'
+        });
+        console.log('Compare currency format USD:', l10nUSD.format(100200300.40) === '$100,200,300.40');
+        console.log('Compare currency format GBP:', l10nGBP.format(100200300.40) === '£100,200,300.40');
+        console.log('Compare currency format EUR:', l10nEUR.format(100200300.40) === '100.200.300,40 €');
+    }
+
+    console.log('\n                              === Date/Time Formatting ===\n    ');
+
+    {
+        var _l10nEN = new Intl.DateTimeFormat('en-US');
+        var _l10nDE2 = new Intl.DateTimeFormat('de-DE');
+        console.log('Compare date format EN:', _l10nEN.format(new Date('2017-01-02')) === '1/2/2017');
+        console.log('Compare date format DE:', _l10nDE2.format(new Date('2017-01-02')) === '2.1.2017');
+    }
+}
+
+},{}],308:[function(require,module,exports){
 "use strict";
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -8187,7 +8244,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
 }
 
-},{}],308:[function(require,module,exports){
+},{}],309:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8200,7 +8257,7 @@ function sum(x, y) {
 
 var pi = exports.pi = 3.141593;
 
-},{}],309:[function(require,module,exports){
+},{}],310:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -8224,7 +8281,7 @@ exports.default = function (x) {
   return Math.exp(x);
 };
 
-},{"./math":308}],310:[function(require,module,exports){
+},{"./math":309}],311:[function(require,module,exports){
 'use strict';
 
 require("babel-polyfill");
@@ -8249,8 +8306,9 @@ require('./typed_arrays');
 require('./new_built_in_methods');
 require('./promises');
 require('./meta_programming');
+require('./internationalization_and_localization');
 
-},{"./arrow_functions":298,"./classes":299,"./constants":300,"./destructuring_assignment":301,"./enhanced_object_properties":302,"./enhanced_regular_expression":303,"./extended_literals":304,"./extended_parameter_handling":305,"./generators":306,"./iterators":307,"./map_set_and_weakmap_weakset":311,"./meta_programming":312,"./modules":313,"./modules2":314,"./new_built_in_methods":315,"./promises":316,"./scoping":317,"./symbol_type":318,"./template_literals":319,"./typed_arrays":320,"babel-polyfill":1}],311:[function(require,module,exports){
+},{"./arrow_functions":298,"./classes":299,"./constants":300,"./destructuring_assignment":301,"./enhanced_object_properties":302,"./enhanced_regular_expression":303,"./extended_literals":304,"./extended_parameter_handling":305,"./generators":306,"./internationalization_and_localization":307,"./iterators":308,"./map_set_and_weakmap_weakset":312,"./meta_programming":313,"./modules":314,"./modules2":315,"./new_built_in_methods":316,"./promises":317,"./scoping":318,"./symbol_type":319,"./template_literals":320,"./typed_arrays":321,"babel-polyfill":1}],312:[function(require,module,exports){
 'use strict';
 
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
@@ -8379,7 +8437,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     console.log('foo isMarked:', isMarked.has(foo));
 }
 
-},{}],312:[function(require,module,exports){
+},{}],313:[function(require,module,exports){
 "use strict";
 
 {
@@ -8412,7 +8470,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }
 }
 
-},{}],313:[function(require,module,exports){
+},{}],314:[function(require,module,exports){
 "use strict";
 
 var _math = require("./lib/math");
@@ -8428,7 +8486,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
     console.log("2π = ", (0, _math.sum)(_math.pi, _math.pi));
 }
 
-},{"./lib/math":308}],314:[function(require,module,exports){
+},{"./lib/math":309}],315:[function(require,module,exports){
 'use strict';
 
 var _mathplusplus = require('./lib/mathplusplus');
@@ -8444,7 +8502,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     console.log('e^{\u03C0}:', (0, _mathplusplus2.default)(_mathplusplus.pi));
 }
 
-},{"./lib/mathplusplus":309}],315:[function(require,module,exports){
+},{"./lib/mathplusplus":310}],316:[function(require,module,exports){
 'use strict';
 
 {
@@ -8545,7 +8603,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     }
 }
 
-},{}],316:[function(require,module,exports){
+},{}],317:[function(require,module,exports){
 'use strict';
 
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
@@ -8593,7 +8651,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
     }
 }
 
-},{}],317:[function(require,module,exports){
+},{}],318:[function(require,module,exports){
 'use strict';
 
 {
@@ -8653,7 +8711,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
     }
 }
 
-},{}],318:[function(require,module,exports){
+},{}],319:[function(require,module,exports){
 "use strict";
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -8702,7 +8760,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     }
 }
 
-},{}],319:[function(require,module,exports){
+},{}],320:[function(require,module,exports){
 "use strict";
 
 var _templateObject = _taggedTemplateLiteral(["http://example.com/foo?bar=", "&quux=", ""], ["http://example.com/foo?bar=", "&quux=", ""]),
@@ -8753,7 +8811,7 @@ function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defi
     console.log("Compare String.war:", String.raw(_templateObject2, 42) === "foo\\n42bar");
 }
 
-},{}],320:[function(require,module,exports){
+},{}],321:[function(require,module,exports){
 "use strict";
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -8825,4 +8883,4 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     console.log("Value example.amountDue:", example.amountDue);
 }
 
-},{}]},{},[310]);
+},{}]},{},[311]);

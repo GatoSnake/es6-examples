@@ -20,3 +20,4 @@ require('./typed_arrays');
 require('./new_built_in_methods');
 require('./promises');
 require('./meta_programming');
+require('./internationalization_and_localization');

@@ -1,7 +1,5 @@
 # ECMAScript 6 (ES6) examples
 
-IN PROGRESS!!!
-
 This project shows the example of all the features of ECMAScript 6. The examples were based on examples from the site http://es6-features.org.
 
 All credits are for http://es6-features.org.
@@ -90,7 +88,6 @@ To run the examples you need to have npm installed.
 * Promises
 	* Promise Usage
 	* Promise Combination
-* ********************************** IN PROGRESS **********************************
 * Meta-Programming
 	* Proxying
 	* Reflection
