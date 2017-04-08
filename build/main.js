@@ -8476,15 +8476,19 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     console.log('\n                     === Number Safety Checking ===\n    ');
 
     {
-        console.log('Number.isSafeInteger(42):', Number.isSafeInteger(42));
-        console.log('Number.isSafeInteger(9007199254740992):', Number.isSafeInteger(9007199254740992));
+        var isSafety1 = Number.isSafeInteger(42);
+        var isSafety2 = Number.isSafeInteger(9007199254740992);
+        console.log('Number.isSafeInteger(42):', isSafety1);
+        console.log('Number.isSafeInteger(9007199254740992):', isSafety2);
     }
 
     console.log('\n                       === Number Comparison ===\n    ');
 
     {
-        console.log('0.1 + 0.2 === 0.3:', 0.1 + 0.2 === 0.3);
-        console.log('Math.abs((0.1 + 0.2) - 0.3) < Number.EPSILON:', Math.abs(0.1 + 0.2 - 0.3) < Number.EPSILON);
+        var num_comp1 = 0.1 + 0.2 === 0.3;
+        var num_comp2 = Math.abs(0.1 + 0.2 - 0.3) < Number.EPSILON;
+        console.log('0.1 + 0.2 === 0.3:', num_comp1);
+        console.log('Math.abs((0.1 + 0.2) - 0.3) < Number.EPSILON:', num_comp2);
     }
 
     console.log('\n                       === Number Truncation ===\n    ');

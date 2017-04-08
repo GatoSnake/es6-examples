@@ -74,8 +74,10 @@
     `);
 
     {
-        console.log(`Number.isSafeInteger(42):`, Number.isSafeInteger(42));
-        console.log(`Number.isSafeInteger(9007199254740992):`, Number.isSafeInteger(9007199254740992));
+        let isSafety1 = Number.isSafeInteger(42);
+        let isSafety2 = Number.isSafeInteger(9007199254740992);
+        console.log(`Number.isSafeInteger(42):`, isSafety1);
+        console.log(`Number.isSafeInteger(9007199254740992):`, isSafety2);
     }
 
     console.log(`
@@ -83,8 +85,10 @@
     `);
 
     {
-        console.log(`0.1 + 0.2 === 0.3:`, 0.1 + 0.2 === 0.3);
-        console.log(`Math.abs((0.1 + 0.2) - 0.3) < Number.EPSILON:`, Math.abs((0.1 + 0.2) - 0.3) < Number.EPSILON);
+        let num_comp1 = (0.1 + 0.2 === 0.3);
+        let num_comp2 = (Math.abs((0.1 + 0.2) - 0.3) < Number.EPSILON);
+        console.log(`0.1 + 0.2 === 0.3:`, num_comp1);
+        console.log(`Math.abs((0.1 + 0.2) - 0.3) < Number.EPSILON:`, num_comp2);
     }
 
     console.log(`

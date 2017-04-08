@@ -2309,6 +2309,155 @@ console.log(`'hello'.includes('ell', 2):`, 'hello'.includes('ell', 2));</code></
                 </div>
             </section>
             <br/>
+            <!-- Number Type Checking-->
+            <section id="number-type-checking">
+                <div class="row">
+                    <div class="col">
+                        <h4>Number Type Checking</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>New functions for checking for non-numbers and finite numbers.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">console.log(`Number.isNaN(42):`, Number.isNaN(42));
+console.log(`Number.isNaN(NaN):`, Number.isNaN(NaN));
+console.log(`Number.isFinite(Infinity):`, Number.isFinite(Infinity));
+console.log(`Number.isFinite(-Infinity):`, Number.isFinite(-Infinity));
+console.log(`Number.isFinite(NaN):`, Number.isFinite(NaN));
+console.log(`Number.isFinite(123):`, Number.isFinite(123));</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">Number.isNaN(42): false
+Number.isNaN(NaN): true
+Number.isFinite(Infinity): false
+Number.isFinite(-Infinity): false
+Number.isFinite(NaN): false
+Number.isFinite(123): true</code></pre>
+                    </div>
+                </div>
+            </section>
+            <br/>
+            <!-- Number Safety Checking-->
+            <section id="number-safety-checking">
+                <div class="row">
+                    <div class="col">
+                        <h4>Number Safety Checking</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Checking whether an integer number is in the safe range, i.e., it is correctly represented by JavaScript (where all numbers, including integer numbers, are technically floating point number).</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">let isSafety1 = Number.isSafeInteger(42);
+let isSafety2 = Number.isSafeInteger(9007199254740992);
+console.log(`Number.isSafeInteger(42):`, isSafety1);
+console.log(`Number.isSafeInteger(9007199254740992):`, isSafety2);</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">Number.isSafeInteger(42): true
+Number.isSafeInteger(9007199254740992): false</code></pre>
+                    </div>
+                </div>
+            </section>
+            <br/>
+            <!-- Number Comparison-->
+            <section id="number-comparison">
+                <div class="row">
+                    <div class="col">
+                        <h4>Number Comparison</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Availability of a standard Epsilon value for more precise comparison of floating point numbers.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">let num_comp1 = (0.1 + 0.2 === 0.3);
+let num_comp2 = (Math.abs((0.1 + 0.2) - 0.3) < Number.EPSILON);
+console.log(`0.1 + 0.2 === 0.3:`, num_comp1);
+console.log(`Math.abs((0.1 + 0.2) - 0.3) < Number.EPSILON:`, num_comp2);</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">0.1 + 0.2 === 0.3: false
+Math.abs((0.1 + 0.2) - 0.3) < Number.EPSILON: true</code></pre>
+                    </div>
+                </div>
+            </section>
+            <br/>
+            <!-- Number Truncation-->
+            <section id="number-truncation">
+                <div class="row">
+                    <div class="col">
+                        <h4>Number Truncation</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Truncate a floating point number to its integral part, completely dropping the fractional part.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">console.log(`Math.trunc(42.7):`, Math.trunc(42.7));
+console.log(`Math.trunc( 0.1):`, Math.trunc(0.1));
+console.log(`Math.trunc(-0.1):`, Math.trunc(-0.1));</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">Math.trunc(42.7): 42
+Math.trunc( 0.1): 0
+Math.trunc(-0.1): -0</code></pre>
+                    </div>
+                </div>
+            </section>
+            <br/>
+            <!-- Number Sign Determination-->
+            <section id="number-sign-determination">
+                <div class="row">
+                    <div class="col">
+                        <h4>Number Sign Determination</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Determine the sign of a number, including special cases of signed zero and non-number.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h6>Code</h6>
+                        <pre><code class="language-javascript">console.log(`Math.sign(7):`, Math.sign(7));
+console.log(`Math.sign(0):`, Math.sign(0));
+console.log(`Math.sign(-0):`, Math.sign(-0));
+console.log(`Math.sign(-7):`, Math.sign(-7));
+console.log(`Math.sign(NaN):`, Math.sign(NaN));</code></pre>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h6>Result</h6>
+                        <pre><code class="language-javascript">Math.sign(7): 1
+Math.sign(0): 0
+Math.sign(-0): -0
+Math.sign(-7): -1
+Math.sign(NaN): NaN</code></pre>
+                    </div>
+                </div>
+            </section>
         </article>
         <br/>
 
