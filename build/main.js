@@ -8245,8 +8245,9 @@ require('./symbol_type');
 require('./iterators');
 require('./generators');
 require('./map_set_and_weakmap_weakset');
+require('./typed_arrays');
 
-},{"./arrow_functions":298,"./classes":299,"./constants":300,"./destructuring_assignment":301,"./enhanced_object_properties":302,"./enhanced_regular_expression":303,"./extended_literals":304,"./extended_parameter_handling":305,"./generators":306,"./iterators":307,"./map_set_and_weakmap_weakset":311,"./modules":312,"./modules2":313,"./scoping":314,"./symbol_type":315,"./template_literals":316,"babel-polyfill":1}],311:[function(require,module,exports){
+},{"./arrow_functions":298,"./classes":299,"./constants":300,"./destructuring_assignment":301,"./enhanced_object_properties":302,"./enhanced_regular_expression":303,"./extended_literals":304,"./extended_parameter_handling":305,"./generators":306,"./iterators":307,"./map_set_and_weakmap_weakset":311,"./modules":312,"./modules2":313,"./scoping":314,"./symbol_type":315,"./template_literals":316,"./typed_arrays":317,"babel-polyfill":1}],311:[function(require,module,exports){
 'use strict';
 
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
@@ -8565,6 +8566,78 @@ function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defi
     quux(_templateObject2, 42);
 
     console.log("Compare String.war:", String.raw(_templateObject2, 42) === "foo\\n42bar");
+}
+
+},{}],317:[function(require,module,exports){
+"use strict";
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+{
+    console.log("\n        ************** Typed Arrays examples **************\n\n                       === Typed Arrays ===\n    ");
+
+    //  ES6 class equivalent to the following C structure:
+    //  struct Example { unsigned long id; char username[16]; float amountDue; };
+
+    var Example = function () {
+        function Example() {
+            var buffer = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : new ArrayBuffer(24);
+
+            _classCallCheck(this, Example);
+
+            this.buffer = buffer;
+        }
+
+        _createClass(Example, [{
+            key: "buffer",
+            set: function set(buffer) {
+                this._buffer = buffer;
+                this._id = new Uint32Array(this._buffer, 0, 1);
+                this._username = new Uint8Array(this._buffer, 4, 16);
+                this._amountDue = new Float32Array(this._buffer, 20, 1);
+            },
+            get: function get() {
+                return this._buffer;
+            }
+        }, {
+            key: "id",
+            set: function set(v) {
+                this._id[0] = v;
+            },
+            get: function get() {
+                return this._id[0];
+            }
+        }, {
+            key: "username",
+            set: function set(v) {
+                this._username[0] = v;
+            },
+            get: function get() {
+                return this._username[0];
+            }
+        }, {
+            key: "amountDue",
+            set: function set(v) {
+                this._amountDue[0] = v;
+            },
+            get: function get() {
+                return this._amountDue[0];
+            }
+        }]);
+
+        return Example;
+    }();
+
+    var example = new Example();
+    example.id = 7;
+    example.username = "John Doe";
+    example.amountDue = 42.0;
+
+    console.log("Value example.id:", example.id);
+    console.log("Value example.username:", example.username);
+    console.log("Value example.amountDue:", example.amountDue);
 }
 
 },{}]},{},[310]);

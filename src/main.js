@@ -16,3 +16,4 @@ require('./symbol_type');
 require('./iterators');
 require('./generators');
 require('./map_set_and_weakmap_weakset');
+require('./typed_arrays');
