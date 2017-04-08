@@ -8248,8 +8248,9 @@ require('./map_set_and_weakmap_weakset');
 require('./typed_arrays');
 require('./new_built_in_methods');
 require('./promises');
+require('./meta_programming');
 
-},{"./arrow_functions":298,"./classes":299,"./constants":300,"./destructuring_assignment":301,"./enhanced_object_properties":302,"./enhanced_regular_expression":303,"./extended_literals":304,"./extended_parameter_handling":305,"./generators":306,"./iterators":307,"./map_set_and_weakmap_weakset":311,"./modules":312,"./modules2":313,"./new_built_in_methods":314,"./promises":315,"./scoping":316,"./symbol_type":317,"./template_literals":318,"./typed_arrays":319,"babel-polyfill":1}],311:[function(require,module,exports){
+},{"./arrow_functions":298,"./classes":299,"./constants":300,"./destructuring_assignment":301,"./enhanced_object_properties":302,"./enhanced_regular_expression":303,"./extended_literals":304,"./extended_parameter_handling":305,"./generators":306,"./iterators":307,"./map_set_and_weakmap_weakset":311,"./meta_programming":312,"./modules":313,"./modules2":314,"./new_built_in_methods":315,"./promises":316,"./scoping":317,"./symbol_type":318,"./template_literals":319,"./typed_arrays":320,"babel-polyfill":1}],311:[function(require,module,exports){
 'use strict';
 
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
@@ -8381,6 +8382,39 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 },{}],312:[function(require,module,exports){
 "use strict";
 
+{
+    console.log("\n        ************** Meta-Programming examples **************\n\n                           === Proxying ===\n    ");
+
+    {
+        var target = {
+            foo: 'Welcome, foo'
+        };
+        var proxy = new Proxy(target, {
+            get: function get(receiver, name) {
+                return name in receiver ? receiver[name] : "Hello, " + name;
+            }
+        });
+        console.log("proxy.foo:", proxy.foo);
+        console.log("proxy.world:", proxy.world);
+    }
+
+    console.log("\n                         === Reflection ===\n    ");
+
+    {
+        var obj = {
+            a: 1
+        };
+        Object.defineProperty(obj, "b", {
+            value: 2
+        });
+        obj[Symbol("c")] = 3;
+        console.log("Reflect.ownKeys(obj):", Reflect.ownKeys(obj));
+    }
+}
+
+},{}],313:[function(require,module,exports){
+"use strict";
+
 var _math = require("./lib/math");
 
 var math = _interopRequireWildcard(_math);
@@ -8394,7 +8428,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
     console.log("2π = ", (0, _math.sum)(_math.pi, _math.pi));
 }
 
-},{"./lib/math":308}],313:[function(require,module,exports){
+},{"./lib/math":308}],314:[function(require,module,exports){
 'use strict';
 
 var _mathplusplus = require('./lib/mathplusplus');
@@ -8410,7 +8444,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     console.log('e^{\u03C0}:', (0, _mathplusplus2.default)(_mathplusplus.pi));
 }
 
-},{"./lib/mathplusplus":309}],314:[function(require,module,exports){
+},{"./lib/mathplusplus":309}],315:[function(require,module,exports){
 'use strict';
 
 {
@@ -8511,7 +8545,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     }
 }
 
-},{}],315:[function(require,module,exports){
+},{}],316:[function(require,module,exports){
 'use strict';
 
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
@@ -8559,7 +8593,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
     }
 }
 
-},{}],316:[function(require,module,exports){
+},{}],317:[function(require,module,exports){
 'use strict';
 
 {
@@ -8619,7 +8653,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
     }
 }
 
-},{}],317:[function(require,module,exports){
+},{}],318:[function(require,module,exports){
 "use strict";
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -8668,7 +8702,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     }
 }
 
-},{}],318:[function(require,module,exports){
+},{}],319:[function(require,module,exports){
 "use strict";
 
 var _templateObject = _taggedTemplateLiteral(["http://example.com/foo?bar=", "&quux=", ""], ["http://example.com/foo?bar=", "&quux=", ""]),
@@ -8719,7 +8753,7 @@ function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defi
     console.log("Compare String.war:", String.raw(_templateObject2, 42) === "foo\\n42bar");
 }
 
-},{}],319:[function(require,module,exports){
+},{}],320:[function(require,module,exports){
 "use strict";
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
