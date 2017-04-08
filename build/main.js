@@ -8246,8 +8246,9 @@ require('./iterators');
 require('./generators');
 require('./map_set_and_weakmap_weakset');
 require('./typed_arrays');
+require('./new_built_in_methods');
 
-},{"./arrow_functions":298,"./classes":299,"./constants":300,"./destructuring_assignment":301,"./enhanced_object_properties":302,"./enhanced_regular_expression":303,"./extended_literals":304,"./extended_parameter_handling":305,"./generators":306,"./iterators":307,"./map_set_and_weakmap_weakset":311,"./modules":312,"./modules2":313,"./scoping":314,"./symbol_type":315,"./template_literals":316,"./typed_arrays":317,"babel-polyfill":1}],311:[function(require,module,exports){
+},{"./arrow_functions":298,"./classes":299,"./constants":300,"./destructuring_assignment":301,"./enhanced_object_properties":302,"./enhanced_regular_expression":303,"./extended_literals":304,"./extended_parameter_handling":305,"./generators":306,"./iterators":307,"./map_set_and_weakmap_weakset":311,"./modules":312,"./modules2":313,"./new_built_in_methods":314,"./scoping":315,"./symbol_type":316,"./template_literals":317,"./typed_arrays":318,"babel-polyfill":1}],311:[function(require,module,exports){
 'use strict';
 
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
@@ -8412,6 +8413,100 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 'use strict';
 
 {
+    console.log('\n        ************** New Built-In Methods examples **************\n\n                    === Object Property Assignment ===\n    ');
+
+    {
+        var dst = {
+            quux: 0
+        };
+        var src1 = {
+            foo: 1,
+            bar: 2
+        };
+        var src2 = {
+            foo: 3,
+            baz: 4
+        };
+        Object.assign(dst, src1, src2);
+        console.log('Value dst.quux:', dst.quux);
+        console.log('Value dst.foo:', dst.foo);
+        console.log('Value dst.bar:', dst.bar);
+        console.log('Value dst.baz:', dst.baz);
+    }
+
+    console.log('\n                      === Array Element Finding ===\n    ');
+
+    {
+        console.log('Find value x > 3:', [1, 3, 4, 2].find(function (x) {
+            return x > 3;
+        }));
+    }
+
+    console.log('\n                        === String Repeating ===\n    ');
+
+    {
+        console.log('\' \'.repeat(4 * 2):', ' '.repeat(4 * 2));
+        console.log('\'foo\'.repeat(3):', 'foo'.repeat(3));
+    }
+
+    console.log('\n                        === String Searching ===\n    ');
+
+    {
+        console.log('\'hello\'.startsWith(\'ello\', 1):', 'hello'.startsWith('ello', 1));
+        console.log('\'hello\'.endsWith(\'hell\', 4):', 'hello'.endsWith('hell', 4));
+        console.log('\'hello\'.includes(\'ell\'):', 'hello'.includes('ell'));
+        console.log('\'hello\'.includes(\'ell\', 1):', 'hello'.includes('ell', 1));
+        console.log('\'hello\'.includes(\'ell\', 2):', 'hello'.includes('ell', 2));
+    }
+
+    console.log('\n                      === Number Type Checking ===\n    ');
+
+    {
+        console.log('Number.isNaN(42):', Number.isNaN(42));
+        console.log('Number.isNaN(NaN):', Number.isNaN(NaN));
+        console.log('Number.isFinite(Infinity):', Number.isFinite(Infinity));
+        console.log('Number.isFinite(-Infinity):', Number.isFinite(-Infinity));
+        console.log('Number.isFinite(NaN):', Number.isFinite(NaN));
+        console.log('Number.isFinite(123):', Number.isFinite(123));
+    }
+
+    console.log('\n                     === Number Safety Checking ===\n    ');
+
+    {
+        console.log('Number.isSafeInteger(42):', Number.isSafeInteger(42));
+        console.log('Number.isSafeInteger(9007199254740992):', Number.isSafeInteger(9007199254740992));
+    }
+
+    console.log('\n                       === Number Comparison ===\n    ');
+
+    {
+        console.log('0.1 + 0.2 === 0.3:', 0.1 + 0.2 === 0.3);
+        console.log('Math.abs((0.1 + 0.2) - 0.3) < Number.EPSILON:', Math.abs(0.1 + 0.2 - 0.3) < Number.EPSILON);
+    }
+
+    console.log('\n                       === Number Truncation ===\n    ');
+
+    {
+        console.log('Math.trunc(42.7):', Math.trunc(42.7));
+        console.log('Math.trunc( 0.1):', Math.trunc(0.1));
+        console.log('Math.trunc(-0.1):', Math.trunc(-0.1));
+    }
+
+    console.log('\n                   === Number Sign Determination ===\n    ');
+
+    {
+        console.log('Math.sign(7):', Math.sign(7));
+        console.log('Math.sign(0):', Math.sign(0));
+        console.log('Math.sign(-0):', Math.sign(-0));
+        console.log('Math.sign(-7):', Math.sign(-7));
+        console.log('Math.sign(NaN):', Math.sign(NaN));
+    }
+}
+
+},{}],315:[function(require,module,exports){
+'use strict';
+
+{
     console.log('\n        ************** Scoping examples **************\n\n                === Block-Scoped Variables ===\n        ');
 
     var a = new Array('a', 'b', 'c');
@@ -8468,7 +8563,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     }
 }
 
-},{}],315:[function(require,module,exports){
+},{}],316:[function(require,module,exports){
 "use strict";
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -8517,7 +8612,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     }
 }
 
-},{}],316:[function(require,module,exports){
+},{}],317:[function(require,module,exports){
 "use strict";
 
 var _templateObject = _taggedTemplateLiteral(["http://example.com/foo?bar=", "&quux=", ""], ["http://example.com/foo?bar=", "&quux=", ""]),
@@ -8568,7 +8663,7 @@ function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defi
     console.log("Compare String.war:", String.raw(_templateObject2, 42) === "foo\\n42bar");
 }
 
-},{}],317:[function(require,module,exports){
+},{}],318:[function(require,module,exports){
 "use strict";
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();

@@ -17,3 +17,4 @@ require('./iterators');
 require('./generators');
 require('./map_set_and_weakmap_weakset');
 require('./typed_arrays');
+require('./new_built_in_methods');
