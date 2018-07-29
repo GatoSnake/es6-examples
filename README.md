@@ -4,7 +4,7 @@ This project shows the example of all the features of ECMAScript 6. The examples
 
 All credits are for http://es6-features.org.
 
-The documentation with the examples can be found [here](https://crismaster.github.io/es6-examples/).
+The documentation with the examples can be found [here](https://gatosnake.github.io/es6-examples/).
 
 ### How to run
 
